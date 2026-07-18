@@ -233,12 +233,12 @@ body {
 }
 
 .objective-card {
-    background: linear-gradient(135deg, rgba(226, 70, 50, 0.02), rgba(79, 70, 229, 0.05));
-    border-color: rgba(79, 70, 229, 0.1);
+    background: linear-gradient(135deg, rgba(226, 70, 50, 0.05), rgba(79, 70, 229, 0.1));
+    border-color: rgba(79, 70, 229, 0.2);
 }
 
 .objective-text {
-    color: hsl(222, 47%, 15%);
+    color: var(--foreground);
     font-size: 1.05rem;
     line-height: 1.75;
     text-align: center;

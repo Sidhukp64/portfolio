@@ -1,4 +1,4 @@
-/* Premium & Modern Portfolio Styles */
+/* Premium Slate & Cream Portfolio Styles */
 
 /* Reset and Base Styles */
 * {
@@ -8,33 +8,33 @@
 }
 
 :root {
-    /* Color Palette - Premium Slate & Indigo (Dark Mode) */
+    /* Color Palette - Premium Slate & Gold (Dark Mode) */
     --background: hsl(222, 47%, 6%);
-    --foreground: hsl(210, 40%, 98%);
-    --card: hsl(222, 47%, 10%);
-    --card-foreground: hsl(210, 40%, 98%);
-    --primary: hsl(226, 80%, 64%);
+    --foreground: hsl(35, 30%, 96%); /* Cream typography */
+    --card: rgba(20, 27, 45, 0.45); /* Glassmorphic dark slate */
+    --card-foreground: hsl(35, 30%, 96%);
+    --primary: hsl(38, 92%, 62%); /* Warm Accent Gold */
+    --primary-hover: hsl(38, 92%, 70%);
     --primary-foreground: hsl(222, 47%, 6%);
-    --primary-hover: hsl(226, 80%, 72%);
-    --secondary: hsl(222, 47%, 14%);
-    --secondary-foreground: hsl(210, 40%, 98%);
-    --muted: hsl(222, 47%, 11%);
-    --muted-foreground: hsl(215, 20%, 65%);
-    --accent: rgba(99, 102, 241, 0.15);
-    --border: rgba(255, 255, 255, 0.08);
-    --input: hsl(222, 47%, 14%);
-    --ring: rgba(99, 102, 241, 0.25);
+    --secondary: hsl(222, 47%, 12%);
+    --secondary-foreground: hsl(35, 30%, 96%);
+    --muted: hsl(222, 47%, 9%);
+    --muted-foreground: hsl(35, 10%, 75%); /* Soft cream-tinted grey */
+    --accent: rgba(226, 180, 116, 0.15);
+    --border: rgba(255, 255, 255, 0.06);
+    --input: hsl(222, 47%, 10%);
+    --ring: rgba(226, 180, 116, 0.25);
     
-    /* Premium Gradients */
-    --gradient-hero: linear-gradient(135deg, hsl(226, 80%, 64%), hsl(240, 80%, 70%));
+    /* Professional Shadows & Radii */
+    --shadow-card: 0 10px 40px -15px rgba(0, 0, 0, 0.5), 0 1px 3px rgba(0, 0, 0, 0.1);
+    --shadow-nav: 0 4px 30px -5px rgba(0, 0, 0, 0.4);
+    --shadow-hover: 0 20px 50px -20px rgba(0, 0, 0, 0.7);
+    --radius-lg: 1rem;
+    --radius-md: 0.75rem;
+    --radius-sm: 0.5rem;
     
-    /* Professional Shadows */
-    --shadow-card: 0 10px 30px -10px rgba(0, 0, 0, 0.3), 0 1px 3px rgba(0, 0, 0, 0.1);
-    --shadow-nav: 0 4px 20px -2px rgba(0, 0, 0, 0.2);
-    --shadow-hover: 0 20px 40px -15px rgba(0, 0, 0, 0.5), 0 1px 3px rgba(0, 0, 0, 0.1);
-    
-    /* Typography */
-    --font-heading: 'Outfit', -apple-system, sans-serif;
+    /* Typography Font Pairing */
+    --font-heading: 'Playfair Display', Georgia, serif;
     --font-body: 'Inter', -apple-system, sans-serif;
 }
 
@@ -54,9 +54,9 @@ body {
 
 /* Navigation Styles */
 .nav-professional {
-    background-color: rgba(15, 23, 42, 0.85);
-    backdrop-filter: blur(8px);
-    -webkit-backdrop-filter: blur(8px);
+    background-color: rgba(10, 15, 26, 0.85);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
     border-bottom: 1px solid var(--border);
     box-shadow: var(--shadow-nav);
     position: sticky;
@@ -78,9 +78,9 @@ body {
 }
 
 .nav-logo {
-    font-size: 1.15rem;
+    font-size: 1.25rem;
     font-weight: 700;
-    letter-spacing: -0.02em;
+    letter-spacing: 0.05em;
     color: var(--foreground);
     font-family: var(--font-heading);
     text-decoration: none;
@@ -98,7 +98,7 @@ body {
 
 .nav-link {
     padding: 0.5rem 1rem;
-    border-radius: 0.5rem;
+    border-radius: var(--radius-sm);
     font-size: 0.875rem;
     font-weight: 500;
     text-decoration: none;
@@ -107,13 +107,14 @@ body {
 }
 
 .nav-link:hover {
-    background-color: var(--muted);
+    background-color: var(--accent);
     color: var(--foreground);
 }
 
 .nav-link.active {
     background-color: var(--primary);
     color: var(--primary-foreground);
+    font-weight: 600;
 }
 
 .mobile-menu {
@@ -139,7 +140,7 @@ body {
 .section {
     display: none;
     min-height: calc(100vh - 4.5rem);
-    padding: 3rem 0;
+    padding: 4rem 0;
 }
 
 .section.active {
@@ -147,44 +148,51 @@ body {
     animation: fadeInUp 0.4s cubic-bezier(0.16, 1, 0.3, 1) forwards;
 }
 
-/* Card Styles */
+/* Card Styles (Glassmorphic) */
 .card-professional {
-    background-color: var(--card);
+    background: var(--card);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
     border: 1px solid var(--border);
-    border-radius: 1rem;
-    padding: 2.25rem;
+    border-radius: var(--radius-lg);
+    padding: 2.5rem;
     box-shadow: var(--shadow-card);
     margin-bottom: 2rem;
     transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
-/* Typography */
+.card-professional:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-hover);
+    border-color: rgba(226, 180, 116, 0.2);
+}
+
+/* Typography Headings */
 .section-header {
-    font-size: 2.25rem;
-    font-weight: 800;
-    letter-spacing: -0.03em;
+    font-family: var(--font-heading);
+    font-size: 2.5rem;
+    font-weight: 600;
+    letter-spacing: -0.01em;
     color: var(--foreground);
     margin-bottom: 2rem;
-    font-family: var(--font-heading);
     text-align: center;
 }
 
 .subsection-header {
-    font-size: 1.5rem;
-    font-weight: 700;
-    letter-spacing: -0.02em;
+    font-family: var(--font-heading);
+    font-size: 1.75rem;
+    font-weight: 500;
     color: var(--foreground);
     margin: 2.5rem 0 1.25rem 0;
-    font-family: var(--font-heading);
 }
 
 .name-shadow {
     font-family: var(--font-heading);
-    font-size: 2.75rem;
-    font-weight: 800;
-    letter-spacing: -0.04em;
+    font-size: 3.5rem;
+    font-weight: 600;
+    letter-spacing: -0.01em;
     color: var(--foreground);
-    margin: 1rem 0;
+    margin: 1.5rem 0 0.5rem 0;
     text-align: center;
 }
 
@@ -204,17 +212,17 @@ body {
 }
 
 .profile-image {
-    width: 8rem;
-    height: 8rem;
-    background: var(--gradient-hero);
+    width: 9rem;
+    height: 9rem;
     border-radius: 50%;
     display: flex;
     align-items: center;
     justify-content: center;
     margin: 0 auto 1.5rem auto;
     overflow: hidden;
-    padding: 4px;
-    box-shadow: 0 4px 20px rgba(79, 70, 229, 0.15);
+    padding: 3px;
+    background: linear-gradient(135deg, var(--primary), var(--background));
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.2);
 }
 
 .profile-photo {
@@ -222,25 +230,26 @@ body {
     height: 100%;
     object-fit: cover;
     border-radius: 50%;
-    border: 2px solid white;
+    border: 2px solid var(--background);
 }
 
 .title {
-    font-size: 1.1rem;
-    font-weight: 500;
+    font-size: 1.25rem;
+    font-weight: 400;
     color: var(--muted-foreground);
     margin-bottom: 1.5rem;
 }
 
 .objective-card {
-    background: linear-gradient(135deg, rgba(226, 70, 50, 0.05), rgba(79, 70, 229, 0.1));
-    border-color: rgba(79, 70, 229, 0.2);
+    background: linear-gradient(135deg, rgba(226, 180, 116, 0.03), rgba(20, 27, 45, 0.5));
+    border-color: rgba(226, 180, 116, 0.15);
+    margin-top: 2rem;
 }
 
 .objective-text {
     color: var(--foreground);
     font-size: 1.05rem;
-    line-height: 1.75;
+    line-height: 1.8;
     text-align: center;
     max-width: 600px;
     margin: 0 auto;
@@ -248,15 +257,17 @@ body {
 
 .navigation-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
     gap: 1.25rem;
     margin-bottom: 3.5rem;
 }
 
 .nav-card {
-    background-color: var(--card);
+    background: var(--card);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
     border: 1px solid var(--border);
-    border-radius: 1rem;
+    border-radius: var(--radius-lg);
     padding: 1.75rem;
     text-align: center;
     cursor: pointer;
@@ -267,15 +278,20 @@ body {
 .nav-card:hover {
     transform: translateY(-4px);
     box-shadow: var(--shadow-hover);
-    border-color: rgba(79, 70, 229, 0.3);
+    border-color: rgba(226, 180, 116, 0.25);
+}
+
+.nav-card .nav-icon {
+    font-size: 1.75rem;
+    margin-bottom: 0.5rem;
 }
 
 .nav-card h3 {
-    font-size: 1.05rem;
-    font-weight: 700;
+    font-family: var(--font-heading);
+    font-size: 1.15rem;
+    font-weight: 500;
     color: var(--foreground);
     margin-bottom: 0.35rem;
-    font-family: var(--font-heading);
     transition: color 0.2s ease;
 }
 
@@ -284,8 +300,9 @@ body {
 }
 
 .nav-card p {
-    font-size: 0.825rem;
+    font-size: 0.85rem;
     color: var(--muted-foreground);
+    line-height: 1.4;
 }
 
 .about-portfolio {
@@ -293,12 +310,12 @@ body {
 }
 
 .about-card {
-    background: linear-gradient(135deg, rgba(79, 70, 229, 0.02), rgba(226, 70, 50, 0.03));
+    background: linear-gradient(135deg, rgba(226, 180, 116, 0.02), rgba(20, 27, 45, 0.3));
 }
 
 .about-text {
     color: var(--muted-foreground);
-    font-size: 0.95rem;
+    font-size: 1rem;
     line-height: 1.75;
     text-align: center;
 }
@@ -318,11 +335,11 @@ body {
 }
 
 .info-group h3 {
-    font-size: 1.15rem;
-    font-weight: 700;
-    color: var(--foreground);
-    margin-bottom: 1rem;
     font-family: var(--font-heading);
+    font-size: 1.35rem;
+    font-weight: 500;
+    color: var(--foreground);
+    margin-bottom: 1.25rem;
     border-left: 3px solid var(--primary);
     padding-left: 0.75rem;
 }
@@ -353,9 +370,9 @@ body {
 
 .address-card {
     background: var(--muted);
-    padding: 1.25rem;
-    border-radius: 0.75rem;
     border: 1px solid var(--border);
+    border-radius: var(--radius-md);
+    padding: 1.25rem;
 }
 
 .address-card p {
@@ -374,9 +391,10 @@ body {
     background-color: var(--accent);
     color: var(--primary);
     padding: 0.35rem 0.85rem;
-    border-radius: 9999px;
+    border-radius: var(--radius-sm);
     font-size: 0.825rem;
     font-weight: 500;
+    border: 1px solid var(--border);
 }
 
 /* Table Styles */
@@ -386,7 +404,7 @@ body {
     border-spacing: 0;
     background-color: var(--card);
     border: 1px solid var(--border);
-    border-radius: 0.75rem;
+    border-radius: var(--radius-md);
     overflow: hidden;
     box-shadow: var(--shadow-card);
     margin-bottom: 2.5rem;
@@ -397,7 +415,7 @@ body {
     color: var(--foreground);
     padding: 1.15rem 1.25rem;
     text-align: left;
-    font-weight: 700;
+    font-weight: 600;
     font-size: 0.9rem;
     font-family: var(--font-heading);
     border-bottom: 1px solid var(--border);
@@ -411,7 +429,7 @@ body {
 }
 
 .table-professional tr:hover td {
-    background-color: rgba(79, 70, 229, 0.02);
+    background-color: rgba(226, 180, 116, 0.05);
     color: var(--foreground);
 }
 
@@ -449,12 +467,12 @@ body {
 }
 
 .skill-category h3 {
-    font-size: 1.25rem;
-    font-weight: 700;
+    font-family: var(--font-heading);
+    font-size: 1.35rem;
+    font-weight: 500;
     color: var(--foreground);
     margin-bottom: 1.25rem;
-    font-family: var(--font-heading);
-    border-bottom: 2px solid var(--muted);
+    border-bottom: 2px solid var(--border);
     padding-bottom: 0.5rem;
 }
 
@@ -463,6 +481,14 @@ body {
     display: grid;
     grid-template-columns: 1fr 1.25fr;
     gap: 3.5rem;
+}
+
+.contact-info h3, .contact-form h3 {
+    font-family: var(--font-heading);
+    font-size: 1.5rem;
+    font-weight: 500;
+    margin-bottom: 1.5rem;
+    color: var(--foreground);
 }
 
 .contact-details {
@@ -475,21 +501,21 @@ body {
     display: flex;
     flex-direction: column;
     gap: 0.25rem;
-    padding: 1rem;
-    border-radius: 0.75rem;
+    padding: 1rem 1.25rem;
+    border-radius: var(--radius-md);
     border: 1px solid var(--border);
     background-color: var(--card);
 }
 
 .contact-item strong {
-    color: var(--foreground);
+    color: var(--primary);
     font-size: 0.85rem;
     text-transform: uppercase;
     letter-spacing: 0.05em;
 }
 
 .contact-item span {
-    color: var(--muted-foreground);
+    color: var(--foreground);
     font-size: 0.95rem;
     word-break: break-all;
 }
@@ -518,8 +544,8 @@ body {
     width: 100%;
     padding: 0.8rem 1rem;
     border: 1px solid var(--border);
-    border-radius: 0.75rem;
-    background-color: var(--card);
+    border-radius: var(--radius-sm);
+    background-color: var(--input);
     color: var(--foreground);
     font-family: var(--font-body);
     font-size: 0.95rem;
@@ -530,7 +556,7 @@ body {
 .form-professional textarea:focus {
     outline: none;
     border-color: var(--primary);
-    box-shadow: 0 0 0 4px var(--ring);
+    box-shadow: 0 0 0 3px var(--ring);
 }
 
 .submit-btn {
@@ -538,18 +564,17 @@ body {
     color: var(--primary-foreground);
     border: none;
     padding: 0.9rem 2rem;
-    border-radius: 0.75rem;
+    border-radius: var(--radius-sm);
     font-weight: 600;
     cursor: pointer;
     font-size: 0.95rem;
     transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
-    box-shadow: 0 4px 12px rgba(79, 70, 229, 0.15);
 }
 
 .submit-btn:hover {
     background-color: var(--primary-hover);
     transform: translateY(-2px);
-    box-shadow: 0 6px 20px rgba(79, 70, 229, 0.25);
+    box-shadow: 0 6px 20px rgba(226, 180, 116, 0.25);
 }
 
 .submit-btn:active {
@@ -564,6 +589,7 @@ body {
     
     .mobile-menu {
         display: block;
+        cursor: pointer;
     }
     
     .personal-grid,
@@ -587,11 +613,11 @@ body {
     }
     
     .name-shadow {
-        font-size: 2.25rem;
+        font-size: 2.5rem;
     }
     
     .section-header {
-        font-size: 1.85rem;
+        font-size: 2rem;
     }
 }
 
@@ -611,7 +637,7 @@ body {
     }
     
     .profile-image {
-        width: 7rem;
-        height: 7rem;
+        width: 7.5rem;
+        height: 7.5rem;
     }
 }

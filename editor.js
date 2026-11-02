@@ -47,6 +47,9 @@
     '.cert-org',
     '.cert-year',
     '.cert-status',
+    '.cert-info h4',
+    '.cert-info p',
+    '.cert-badge',
     '.contact-item-value',
     '.section-title',
     '.section-label'

@@ -1,226 +1,392 @@
-// Professional Biodata Website JavaScript
+/**
+ * ============================================================
+ *  SIDHARTH KP — Portfolio Script
+ *  Features:
+ *   • Dark / Light theme (persisted in localStorage)
+ *   • Hamburger mobile menu
+ *   • Scrollspy — active nav link highlight
+ *   • Smooth scroll (native CSS) + back-to-top button
+ *   • Typewriter effect (rotating roles)
+ *   • IntersectionObserver scroll-reveal (.reveal-up → .visible)
+ *   • Animated skill-bar widths on scroll-in
+ *   • 3D tilt effect on project cards (pure JS, no library)
+ *   • Web3Forms async contact form submission
+ *   • Custom toast notifications (no alert())
+ * ============================================================
+ */
 
-// Navigation functionality
-function showSection(sectionId) {
-    // Hide all sections
-    const sections = document.querySelectorAll('.section');
-    sections.forEach(section => {
-        section.classList.remove('active');
-    });
-    
-    // Show the selected section
-    const targetSection = document.getElementById(sectionId);
-    if (targetSection) {
-        targetSection.classList.add('active');
+/* ── Wait for DOM to be ready ── */
+document.addEventListener('DOMContentLoaded', () => {
+
+  /* ============================================================
+     1. THEME TOGGLE
+     ============================================================ */
+  const htmlEl      = document.documentElement;
+  const themeToggle = document.getElementById('theme-toggle');
+
+  /** Apply a theme string ('dark' | 'light') to the document */
+  function applyTheme(theme) {
+    htmlEl.setAttribute('data-theme', theme);
+    localStorage.setItem('portfolio-theme', theme);
+  }
+
+  // Restore saved theme, falling back to 'dark'
+  const savedTheme = localStorage.getItem('portfolio-theme') || 'dark';
+  applyTheme(savedTheme);
+
+  themeToggle.addEventListener('click', () => {
+    const current = htmlEl.getAttribute('data-theme');
+    applyTheme(current === 'dark' ? 'light' : 'dark');
+  });
+
+
+  /* ============================================================
+     2. HAMBURGER MOBILE MENU
+     ============================================================ */
+  const hamburger  = document.getElementById('hamburger');
+  const mobileMenu = document.getElementById('mobile-menu');
+
+  function toggleMenu(open) {
+    hamburger.classList.toggle('open', open);
+    mobileMenu.classList.toggle('open', open);
+    hamburger.setAttribute('aria-expanded', open);
+    mobileMenu.setAttribute('aria-hidden', !open);
+  }
+
+  hamburger.addEventListener('click', () => {
+    const isOpen = hamburger.classList.contains('open');
+    toggleMenu(!isOpen);
+  });
+
+  // Close on mobile link click
+  mobileMenu.querySelectorAll('.mobile-link').forEach(link => {
+    link.addEventListener('click', () => toggleMenu(false));
+  });
+
+  // Close on outside click
+  document.addEventListener('click', (e) => {
+    if (!hamburger.contains(e.target) && !mobileMenu.contains(e.target)) {
+      toggleMenu(false);
     }
-    
-    // Update navigation active state
-    updateNavigation(sectionId);
-    
-    // Scroll to top
+  });
+
+
+  /* ============================================================
+     3. NAVBAR — scroll shadow + back-to-top visibility
+     ============================================================ */
+  const navbar    = document.getElementById('navbar');
+  const backToTop = document.getElementById('back-to-top');
+
+  window.addEventListener('scroll', onScroll, { passive: true });
+
+  function onScroll() {
+    const scrollY = window.scrollY;
+
+    // Navbar shadow
+    navbar.classList.toggle('scrolled', scrollY > 20);
+
+    // Back-to-top button
+    backToTop.classList.toggle('visible', scrollY > 400);
+
+    // Scrollspy
+    updateScrollspy();
+  }
+
+  backToTop.addEventListener('click', () => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
-}
+  });
 
-// Update navigation active state
-function updateNavigation(activeSection) {
-    const navLinks = document.querySelectorAll('.nav-link');
+
+  /* ============================================================
+     4. SCROLLSPY — highlight active nav link
+     ============================================================ */
+  const sections  = document.querySelectorAll('section[id]');
+  const navLinks  = document.querySelectorAll('.nav-link');
+  const mobileLinks = document.querySelectorAll('.mobile-link');
+
+  function updateScrollspy() {
+    const scrollY = window.scrollY + 120; // offset for navbar height
+
+    let current = '';
+    sections.forEach(section => {
+      if (scrollY >= section.offsetTop) {
+        current = section.id;
+      }
+    });
+
     navLinks.forEach(link => {
-        link.classList.remove('active');
-        
-        // Check if this link corresponds to the active section
-        const href = link.getAttribute('href');
-        if (href === `#${activeSection}`) {
-            link.classList.add('active');
-        }
+      link.classList.toggle('active', link.dataset.section === current);
     });
-}
 
-// Handle navigation clicks
-document.addEventListener('DOMContentLoaded', function() {
-    // Add click event listeners to navigation links
-    const navLinks = document.querySelectorAll('.nav-link');
-    navLinks.forEach(link => {
-        link.addEventListener('click', function(e) {
-            e.preventDefault();
-            const href = this.getAttribute('href');
-            const sectionId = href.substring(1); // Remove the '#' 
-            showSection(sectionId);
-        });
+    mobileLinks.forEach(link => {
+      link.classList.toggle('active', link.dataset.section === current);
     });
-    
-    // Handle form submission
-    const contactForm = document.getElementById('contact-form');
-    if (contactForm) {
-        contactForm.addEventListener('submit', function(e) {
-            e.preventDefault();
-            
-            // Get form data
-            const formData = new FormData(this);
-            const name = formData.get('name');
-            const email = formData.get('email');
-            const subject = formData.get('subject');
-            const message = formData.get('message');
-            
-            // Simple validation
-            if (!name || !email || !subject || !message) {
-                alert('Please fill in all fields.');
-                return;
-            }
-            
-            // Email validation
-            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-            if (!emailRegex.test(email)) {
-                alert('Please enter a valid email address.');
-                return;
-            }
-            
-            const submitBtn = contactForm.querySelector('.submit-btn');
-            const originalBtnText = submitBtn.textContent;
-            submitBtn.textContent = 'Sending...';
-            submitBtn.disabled = true;
+  }
 
-            // Submit using fetch
-            fetch('https://api.web3forms.com/submit', {
-                method: 'POST',
-                body: formData
-            })
-            .then(async (response) => {
-                let json = await response.json();
-                if (response.status == 200) {
-                    alert(`Thank you, ${name}! Your message has been sent successfully. I will get back to you soon.`);
-                    contactForm.reset();
-                } else {
-                    console.log(response);
-                    alert(json.message || 'Something went wrong. Please try again.');
-                }
-            })
-            .catch(error => {
-                console.log(error);
-                alert('Form submission failed. Please check your internet connection.');
-            })
-            .then(() => {
-                submitBtn.textContent = originalBtnText;
-                submitBtn.disabled = false;
-            });
-        });
-    }
-    
-    // Add hover effects to navigation cards
-    const navCards = document.querySelectorAll('.nav-card');
-    navCards.forEach(card => {
-        card.addEventListener('mouseenter', function() {
-            this.style.transform = 'translateY(-4px)';
-        });
-        
-        card.addEventListener('mouseleave', function() {
-            this.style.transform = 'translateY(0)';
-        });
-    });
-    
-    // Add smooth scrolling for better UX
-    const style = document.createElement('style');
-    style.textContent = `
-        html {
-            scroll-behavior: smooth;
-        }
-    `;
-    document.head.appendChild(style);
-    
-    // Initialize with home section active
-    showSection('home');
-});
+  // Run once on load
+  updateScrollspy();
 
-// Mobile menu functionality (basic implementation)
-function toggleMobileMenu() {
-    const navLinks = document.querySelector('.nav-links');
-    if (navLinks.style.display === 'none' || navLinks.style.display === '') {
-        navLinks.style.display = 'flex';
-        navLinks.style.flexDirection = 'column';
-        navLinks.style.position = 'absolute';
-        navLinks.style.top = '100%';
-        navLinks.style.left = '0';
-        navLinks.style.right = '0';
-        navLinks.style.backgroundColor = 'var(--card)';
-        navLinks.style.padding = '1rem';
-        navLinks.style.boxShadow = 'var(--shadow-nav)';
+
+  /* ============================================================
+     5. TYPEWRITER EFFECT
+     ============================================================ */
+  const roles = [
+    'Information Technology Student',
+    'Full Stack Developer',
+    'AI Enthusiast',
+    'Python Developer',
+    'Data Science Explorer',
+  ];
+
+  const typewriterEl = document.getElementById('typewriter');
+  let roleIndex   = 0;
+  let charIndex   = 0;
+  let isDeleting  = false;
+  let typeTimer   = null;
+
+  function typeWriter() {
+    const currentRole = roles[roleIndex];
+
+    if (isDeleting) {
+      // Remove one character
+      charIndex--;
+      typewriterEl.textContent = currentRole.slice(0, charIndex);
     } else {
-        navLinks.style.display = 'none';
+      // Add one character
+      charIndex++;
+      typewriterEl.textContent = currentRole.slice(0, charIndex);
     }
-}
 
-// Add mobile menu toggle event
-document.addEventListener('DOMContentLoaded', function() {
-    const mobileMenu = document.querySelector('.mobile-menu');
-    if (mobileMenu) {
-        mobileMenu.addEventListener('click', toggleMobileMenu);
-        mobileMenu.style.cursor = 'pointer';
+    let delay = isDeleting ? 60 : 100;
+
+    if (!isDeleting && charIndex === currentRole.length) {
+      // Pause at end
+      delay = 1800;
+      isDeleting = true;
+    } else if (isDeleting && charIndex === 0) {
+      // Move to next role
+      isDeleting = false;
+      roleIndex  = (roleIndex + 1) % roles.length;
+      delay = 400;
     }
-});
 
-// Handle window resize for responsive behavior
-window.addEventListener('resize', function() {
-    const navLinks = document.querySelector('.nav-links');
-    if (window.innerWidth > 768) {
-        navLinks.style.display = 'flex';
-        navLinks.style.flexDirection = 'row';
-        navLinks.style.position = 'static';
-        navLinks.style.backgroundColor = 'transparent';
-        navLinks.style.padding = '0';
-        navLinks.style.boxShadow = 'none';
-    } else {
-        navLinks.style.display = 'none';
-    }
-});
+    typeTimer = setTimeout(typeWriter, delay);
+  }
 
-// Add loading animation
-window.addEventListener('load', function() {
-    document.body.style.opacity = '0';
-    document.body.style.transition = 'opacity 0.5s ease-in-out';
-    
-    setTimeout(function() {
-        document.body.style.opacity = '1';
-    }, 100);
-});
+  // Start typewriter
+  typeWriter();
 
-// Utility function to validate email
-function validateEmail(email) {
-    const regex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    return regex.test(email);
-}
 
-// Add print functionality
-function printPage() {
-    window.print();
-}
-
-// Keyboard navigation support
-document.addEventListener('keydown', function(e) {
-    if (e.altKey) {
-        switch(e.key) {
-            case '1':
-                e.preventDefault();
-                showSection('home');
-                break;
-            case '2':
-                e.preventDefault();
-                showSection('personal');
-                break;
-            case '3':
-                e.preventDefault();
-                showSection('education');
-                break;
-            case '4':
-                e.preventDefault();
-                showSection('skills');
-                break;
-            case '5':
-                e.preventDefault();
-                showSection('training');
-                break;
-            case '8':
-                e.preventDefault();
-                showSection('contact');
-                break;
+  /* ============================================================
+     6. SCROLL-REVEAL — IntersectionObserver for .reveal-up
+     ============================================================ */
+  const revealObserver = new IntersectionObserver(
+    (entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          revealObserver.unobserve(entry.target); // animate once
         }
-    }
-});
+      });
+    },
+    { threshold: 0.12 }
+  );
+
+  document.querySelectorAll('.reveal-up').forEach(el => revealObserver.observe(el));
+
+
+  /* ============================================================
+     7. SKILL BAR ANIMATIONS — animate to target width on scroll-in
+     ============================================================ */
+  const skillFills = document.querySelectorAll('.skill-fill');
+
+  const skillObserver = new IntersectionObserver(
+    (entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          const fill    = entry.target;
+          const targetW = fill.dataset.width || '0';
+          // Tiny delay so the CSS transition actually plays
+          setTimeout(() => {
+            fill.style.width = targetW + '%';
+          }, 120);
+          skillObserver.unobserve(fill);
+        }
+      });
+    },
+    { threshold: 0.3 }
+  );
+
+  skillFills.forEach(fill => skillObserver.observe(fill));
+
+
+  /* ============================================================
+     8. 3D TILT EFFECT — project cards
+     ============================================================ */
+  const tiltCards = document.querySelectorAll('[data-tilt]');
+
+  tiltCards.forEach(card => {
+    card.addEventListener('mousemove', handleTilt);
+    card.addEventListener('mouseleave', resetTilt);
+  });
+
+  function handleTilt(e) {
+    const card   = e.currentTarget;
+    const rect   = card.getBoundingClientRect();
+    const x      = e.clientX - rect.left;  // x position within card
+    const y      = e.clientY - rect.top;   // y position within card
+    const cx     = rect.width  / 2;
+    const cy     = rect.height / 2;
+
+    // Tilt magnitude (degrees)
+    const maxTilt = 8;
+    const rotateY =  ((x - cx) / cx) * maxTilt;
+    const rotateX = -((y - cy) / cy) * maxTilt;
+
+    card.style.transform = `perspective(800px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale3d(1.02,1.02,1.02)`;
+    card.style.transition = 'transform 0.05s ease';
+  }
+
+  function resetTilt(e) {
+    const card = e.currentTarget;
+    card.style.transform = '';
+    card.style.transition = 'transform 0.45s cubic-bezier(0.4, 0, 0.2, 1)';
+  }
+
+
+  /* ============================================================
+     9. CONTACT FORM — Web3Forms async submission
+     ============================================================ */
+  const contactForm = document.getElementById('contact-form');
+  const submitBtn   = document.getElementById('submit-btn');
+  const btnText     = document.getElementById('btn-text');
+  const btnSpinner  = document.getElementById('btn-spinner');
+
+  if (contactForm) {
+    contactForm.addEventListener('submit', async (e) => {
+      e.preventDefault();
+
+      // --- Validate manually (form has `novalidate`) ---
+      const name    = document.getElementById('form-name').value.trim();
+      const email   = document.getElementById('form-email').value.trim();
+      const subject = document.getElementById('form-subject').value.trim();
+      const message = document.getElementById('form-message').value.trim();
+
+      if (!name || !email || !subject || !message) {
+        showToast('Please fill in all fields.', 'error');
+        return;
+      }
+
+      if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+        showToast('Please enter a valid email address.', 'error');
+        return;
+      }
+
+      // --- Show loading state ---
+      submitBtn.disabled = true;
+      btnText.style.display = 'none';
+      btnSpinner.style.display = 'inline-block';
+
+      // Build form data object for Web3Forms
+      const formData = {
+        access_key: '7a7b37ce-b998-43d7-819c-dfc9e0b2ac70',
+        name,
+        email,
+        subject,
+        message,
+        from_name: 'Sidharth KP Portfolio',
+      };
+
+      try {
+        const response = await fetch('https://api.web3forms.com/submit', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+            'Accept': 'application/json',
+          },
+          body: JSON.stringify(formData),
+        });
+
+        const result = await response.json();
+
+        if (response.ok && result.success) {
+          showToast('Message sent successfully! I\'ll get back to you soon. 🎉', 'success');
+          contactForm.reset();
+        } else {
+          showToast(result.message || 'Something went wrong. Please try again.', 'error');
+        }
+
+      } catch (err) {
+        console.error('Form submission error:', err);
+        showToast('Network error. Please check your connection and try again.', 'error');
+      } finally {
+        // Restore button
+        submitBtn.disabled = false;
+        btnText.style.display = '';
+        btnSpinner.style.display = 'none';
+      }
+    });
+  }
+
+
+  /* ============================================================
+     10. TOAST NOTIFICATIONS
+     ============================================================ */
+  const toastContainer = document.getElementById('toast-container');
+
+  /**
+   * Display a toast notification.
+   * @param {string} message  - Toast text content
+   * @param {'success'|'error'} type - Visual variant
+   * @param {number} duration - Auto-dismiss in ms (default 5000)
+   */
+  function showToast(message, type = 'success', duration = 5000) {
+    const toast = document.createElement('div');
+    toast.className = `toast toast-${type}`;
+    toast.setAttribute('role', 'alert');
+    toast.setAttribute('aria-live', 'assertive');
+
+    const icon = type === 'success'
+      ? '<i class="fas fa-check-circle" aria-hidden="true"></i>'
+      : '<i class="fas fa-exclamation-circle" aria-hidden="true"></i>';
+
+    toast.innerHTML = `${icon}<span>${message}</span>`;
+    toastContainer.appendChild(toast);
+
+    // Auto-remove
+    const dismissTimer = setTimeout(() => removeToast(toast), duration);
+
+    // Allow clicking to dismiss early
+    toast.addEventListener('click', () => {
+      clearTimeout(dismissTimer);
+      removeToast(toast);
+    });
+  }
+
+  function removeToast(toast) {
+    toast.classList.add('removing');
+    toast.addEventListener('animationend', () => toast.remove(), { once: true });
+  }
+
+  // Expose showToast globally (useful for debugging)
+  window.showToast = showToast;
+
+
+  /* ============================================================
+     11. SMOOTH SCROLL — polyfill for anchor hrefs (already handled
+         by CSS `scroll-behavior: smooth`, but ensure nav links work
+         cross-browser and close the mobile menu)
+     ============================================================ */
+  document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', (e) => {
+      const target = document.querySelector(anchor.getAttribute('href'));
+      if (target) {
+        e.preventDefault();
+        target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        // Close mobile menu if open
+        toggleMenu(false);
+      }
+    });
+  });
+
+}); // end DOMContentLoaded

@@ -1,568 +1,781 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="dark">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <title>Sidharth KP - IT Student & AI & Full Stack Developer</title>
-    <meta name="description" content="Professional biodata and portfolio of Sidharth KP, IT student with expertise in web development, programming, and software engineering.">
-    <meta name="author" content="Sidharth KP">
-    <meta name="keywords" content="Sidharth KP, Information technology, Web Developer, Student Portfolio, Biodata, Resume, Programming, React, JavaScript">
-    
-    
-    
-    <meta property="og:type" content="website">
-    
-    <link rel="stylesheet" href="styles.css?v=3">
-  <meta property="og:title" content="Sidharth KP - IT Student & AI & Full Stack Developer">
-  <meta name="twitter:title" content="Sidharth KP - IT Student & AI & Full Stack Developer">
-  <meta property="og:description" content="Professional biodata and portfolio of Sidharth KP, IT student with expertise in web development, programming, and software engineering.">
-  <meta name="twitter:description" content="Professional biodata and portfolio of Sidharth KP, IT student with expertise in web development, programming, and software engineering.">
-  <link rel="icon" type="image/x-icon" href="/favicon.ico">
-  <meta property="og:image" content="https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/3c866b46-80fc-43fe-8e7b-84948b4473b2/id-preview-c258525a--cc674e1f-a617-4ab9-9304-7e706bac4ff6.lovable.app-1783589923414.png">
-  <meta name="twitter:image" content="https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/3c866b46-80fc-43fe-8e7b-84948b4473b2/id-preview-c258525a--cc674e1f-a617-4ab9-9304-7e706bac4ff6.lovable.app-1783589923414.png">
-  <meta name="twitter:card" content="summary_large_image">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sidharth KP — IT Student & Full Stack Developer</title>
+  <meta name="description" content="Portfolio of Sidharth KP — Information Technology Student, Full Stack Developer, and AI Enthusiast based in Kerala, India." />
+  <meta name="author" content="Sidharth KP" />
+  <meta name="keywords" content="Sidharth KP, Information Technology, Full Stack Developer, AI, Python, React, Portfolio, Kerala" />
 
-<style>
-	@font-face {
-		font-family: 'CameraPlainVariable';
-		src: url('https://cdn.gpteng.co/mcp-widgets/v1/fonts/CameraPlainVariable.woff2') format('woff2');
-		font-weight: 100 900;
-		font-style: normal;
-		font-display: swap;
-	}
+  <!-- Open Graph -->
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Sidharth KP — IT Student & Full Stack Developer" />
+  <meta property="og:description" content="Portfolio of Sidharth KP — Information Technology Student, Full Stack Developer, and AI Enthusiast." />
 
-	#lovable-badge {
-		--badge-bg: #1b1b1b;
-		--badge-text: #c5c1b9;
-		--badge-text-hover: #dcdad5;
-		--badge-radius: 6px;
-		--badge-padding: 8px;
-		--badge-gap: 6px;
-		--badge-shadow: 
-			0 0 0 1px rgba(0, 0, 0, 0.88),
-			0 1px 0 0 rgba(0, 0, 0, 0.04),
-			0 2px 2px -1px rgba(0, 0, 0, 0.08),
-			0 4px 4px -2px rgba(0, 0, 0, 0.08),
-			0 8px 8px -4px rgba(0, 0, 0, 0.08),
-			0 16px 16px -8px rgba(0, 0, 0, 0.08);
-		--badge-transition-duration: 0.2s;
-		--badge-transition-easing: cubic-bezier(0.16, 1, 0.32, 1);
-		--focus-color: #575ECF;
-		--focus-offset: 2px;
-		--focus-width: 2px;
-		
-		position: fixed;
-		bottom: 12px;
-		right: 12px;
-		height: 24px;
-		display: flex;
-		align-items: center;
-		z-index: 1000000;
-		background-color: var(--badge-bg) !important;
-		color: var(--badge-text) !important;
-		border-radius: var(--badge-radius);
-		box-shadow: var(--badge-shadow) !important;
-		font-size: 12px;
-		font-family: CameraPlainVariable, "CameraPlainVariable Fallback", -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-		font-weight: 400 !important;
-		text-transform: none !important;
-		font-feature-settings: normal !important;
-		transform: translateZ(0);
-		will-change: transform, opacity;
-	}
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;0,900;1,400&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
 
-	#lovable-badge-cta {
-		display: flex;
-		align-items: center;
-		gap: var(--badge-gap);
-		padding: 0 var(--badge-padding);
-		height: 100%;
-		color: inherit;
-		text-decoration: none;
-		white-space: nowrap;
-		border-radius: var(--badge-radius) 0 0 var(--badge-radius);
-		transition: 
-			background-color var(--badge-transition-duration) ease,
-			color var(--badge-transition-duration) ease,
-			transform 0.1s ease;
-	}
+  <!-- Font Awesome 6.5 -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
 
-	#lovable-badge-cta:hover {
-		background: rgba(255, 255, 255, 0.04);
-		color: var(--badge-text-hover);
-	}
-
-	#lovable-badge-cta:active {
-		transform: scale(0.98);
-	}
-
-	#lovable-badge-cta:focus {
-		outline: none;
-	}
-
-	#lovable-badge-cta:focus-visible {
-		outline: var(--focus-width) solid var(--focus-color);
-		outline-offset: var(--focus-offset);
-		z-index: 1;
-	}
-
-	#lovable-badge-text {
-		line-height: 1;
-	}
-
-	#lovable-badge-divider {
-		width: 1px;
-		height: 24px;
-		background-color: rgba(255, 255, 255, 0.04);
-		flex-shrink: 0;
-	}
-
-	#lovable-badge-close {
-		width: 24px;
-		height: 24px;
-		min-width: 24px;
-		min-height: 24px;
-		cursor: pointer;
-		background: none;
-		border: none;
-		padding: 0;
-		display: flex;
-		align-items: center;
-		justify-content: center;
-		border-radius: 0 var(--badge-radius) var(--badge-radius) 0;
-		flex-shrink: 0;
-		transition: 
-			background-color var(--badge-transition-duration) ease,
-			transform 0.1s ease;
-	}
-
-	#lovable-badge-close:hover {
-		background: rgba(255, 255, 255, 0.04);
-	}
-
-	#lovable-badge-close:active {
-		transform: scale(0.92);
-	}
-
-	#lovable-badge-close:focus {
-		outline: none;
-	}
-
-	#lovable-badge-close:focus-visible {
-		outline: var(--focus-width) solid var(--focus-color);
-		outline-offset: calc(var(--focus-offset) * -1);
-		z-index: 1;
-	}
-
-	#lovable-badge-close svg path {
-		fill: var(--badge-text);
-		transition: fill var(--badge-transition-duration) ease;
-	}
-
-	#lovable-badge-close:hover svg path {
-		fill: var(--badge-text-hover);
-	}
-
-	@media (prefers-reduced-motion: reduce) {
-		#lovable-badge-cta,
-		#lovable-badge-close,
-		#lovable-badge-close svg path {
-			transition: none;
-		}
-		
-		#lovable-badge-cta:active,
-		#lovable-badge-close:active {
-			transform: none;
-		}
-	}
-
-	@media (prefers-contrast: high) {
-		#lovable-badge {
-			--badge-bg: #000;
-			--badge-text: #fff;
-			--badge-text-hover: #fff;
-			border: 2px solid currentColor;
-		}
-		
-		#lovable-badge-cta:focus-visible,
-		#lovable-badge-close:focus-visible {
-			outline-width: 3px;
-		}
-	}
-</style>
-<script defer src="/~flock.js" data-proxy-url="/~api/analytics"></script><script defer src="/__l5e/events.js" data-artifact-kind="cf_deployment_id" data-artifact-id="f3d81d51-d50a-42a9-9e9b-80eafc8199ae" data-commit-sha="0f39e41534fae4ffb47f3b546f1db09e66534ae7" data-context-token="v1.eyJwcm9qZWN0X2lkIjoiY2M2NzRlMWYtYTYxNy00YWI5LTkzMDQtN2U3MDZiYWM0ZmY2IiwiYXJ0aWZhY3Rfa2luZCI6ImNmX2RlcGxveW1lbnRfaWQiLCJhcnRpZmFjdF9pZCI6ImYzZDgxZDUxLWQ1MGEtNDJhOS05ZTliLTgwZWFmYzgxOTlhZSIsImNvbW1pdF9zaGEiOiIwZjM5ZTQxNTM0ZmFlNGZmYjQ3ZjNiNTQ2ZjFkYjA5ZTY2NTM0YWU3IiwiZXhwIjoxNzgzNjEwNDI5fQ.P8trPc7ikhYLsCZh9nOWHt76TLrc28mZNBTAQAQ4VaA"></script></head>
+  <!-- Main Stylesheet -->
+  <link rel="stylesheet" href="styles.css" />
+</head>
 <body>
-    <!-- Navigation -->
-    <nav class="nav-professional">
-        <div class="nav-container">
-            <div class="nav-content">
-                <a href="#home" class="nav-logo">SIDHARTH KP</a>
-                
-                <div class="nav-links">
-                    <a href="#home" class="nav-link active">Home</a>
-                    <a href="#personal" class="nav-link">Personal Information</a>
-                    <a href="#education" class="nav-link">Education</a>
-                    <a href="#skills" class="nav-link">Skills</a>
-                    <a href="#training" class="nav-link">Training</a>
-                    
-                    
-                    <a href="#contact" class="nav-link">Contact</a>
-                </div>
-                
-                <div class="mobile-menu">Menu</div>
-            </div>
+
+  <!-- ===================== TOAST CONTAINER ===================== -->
+  <div id="toast-container" aria-live="polite"></div>
+
+  <!-- ===================== BACKGROUND ORBS ===================== -->
+  <div class="bg-orbs" aria-hidden="true">
+    <div class="orb orb-1"></div>
+    <div class="orb orb-2"></div>
+    <div class="orb orb-3"></div>
+    <div class="orb orb-4"></div>
+  </div>
+
+  <!-- ===================== NAVIGATION ===================== -->
+  <nav id="navbar" class="navbar" role="navigation" aria-label="Main navigation">
+    <div class="nav-container">
+      <!-- Logo -->
+      <a href="#hero" class="nav-logo" aria-label="Sidharth KP — Home">
+        <span class="logo-text">SK</span>
+      </a>
+
+      <!-- Desktop Nav Links -->
+      <ul class="nav-links" role="list">
+        <li><a href="#hero"           class="nav-link active" data-section="hero">Home</a></li>
+        <li><a href="#about"          class="nav-link"        data-section="about">About</a></li>
+        <li><a href="#skills"         class="nav-link"        data-section="skills">Skills</a></li>
+        <li><a href="#education"      class="nav-link"        data-section="education">Education</a></li>
+        <li><a href="#projects"       class="nav-link"        data-section="projects">Projects</a></li>
+        <li><a href="#certifications" class="nav-link"        data-section="certifications">Certifications</a></li>
+        <li><a href="#contact"        class="nav-link"        data-section="contact">Contact</a></li>
+      </ul>
+
+      <!-- Controls -->
+      <div class="nav-controls">
+        <!-- Theme Toggle -->
+        <button id="theme-toggle" class="icon-btn" aria-label="Toggle light/dark theme" title="Toggle theme">
+          <i class="fas fa-sun"  id="icon-sun"  aria-hidden="true"></i>
+          <i class="fas fa-moon" id="icon-moon" aria-hidden="true"></i>
+        </button>
+
+        <!-- Hamburger -->
+        <button id="hamburger" class="hamburger" aria-label="Open menu" aria-expanded="false" aria-controls="mobile-menu">
+          <span class="bar"></span>
+          <span class="bar"></span>
+          <span class="bar"></span>
+        </button>
+      </div>
+    </div>
+
+    <!-- Mobile Menu -->
+    <div id="mobile-menu" class="mobile-menu" aria-hidden="true">
+      <ul role="list">
+        <li><a href="#hero"           class="mobile-link" data-section="hero">Home</a></li>
+        <li><a href="#about"          class="mobile-link" data-section="about">About</a></li>
+        <li><a href="#skills"         class="mobile-link" data-section="skills">Skills</a></li>
+        <li><a href="#education"      class="mobile-link" data-section="education">Education</a></li>
+        <li><a href="#projects"       class="mobile-link" data-section="projects">Projects</a></li>
+        <li><a href="#certifications" class="mobile-link" data-section="certifications">Certifications</a></li>
+        <li><a href="#contact"        class="mobile-link" data-section="contact">Contact</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- ===================== HERO SECTION ===================== -->
+  <section id="hero" class="section-hero">
+    <div class="hero-container">
+
+      <!-- Left: Text Content -->
+      <div class="hero-content reveal-up">
+        <p class="hero-greeting">Hello, I'm</p>
+        <h1 class="hero-name">Sidharth KP</h1>
+
+        <!-- Typewriter -->
+        <div class="typewriter-wrap">
+          <span class="typewriter-prefix">I am a </span>
+          <span id="typewriter" class="typewriter-text" aria-live="polite"></span>
+          <span class="typewriter-cursor" aria-hidden="true">|</span>
         </div>
-    </nav>
 
-    <!-- Home Section -->
-    <section id="home" class="section active">
-        <div class="container">
-            <div class="home-intro">
-                <div class="card-professional intro-card">
-                    <div class="profile-section">
-                        <div class="profile-image">
-                            <img src="profile.jpg?v=1" alt="Sidharth KP" class="profile-photo" />
-                        </div>
-                        <h1 class="name-shadow">SIDHARTH KP</h1>
-                        <p class="title">Information Technology Student & AI & Full Stack Developer</p>
-                    </div>
-                    
-                    <div class="card-professional objective-card">
-                        <h2 class="section-header">Career Objective</h2>
-                        <p class="objective-text">
-                            A dedicated and passionate IT student seeking opportunities to apply my technical skills and knowledge . I aim to contribute to innovative projects while continuing learning and growing in a dynamic technology environment.&nbsp;
-                        </p>
-                    </div>
-                </div>
-            </div>
-
-            <div class="navigation-grid">
-                <div class="nav-card" onclick="showSection('personal')">
-                    <div class="nav-icon">👤</div>
-                    <h3>Personal Info</h3>
-                    <p>Basic details and contact information</p>
-                </div>
-                <div class="nav-card" onclick="showSection('education')">
-                    <div class="nav-icon">🎓</div>
-                    <h3>Education</h3>
-                    <p>Academic qualifications and achievements</p>
-                </div>
-                <div class="nav-card" onclick="showSection('skills')">
-                    <div class="nav-icon">💻</div>
-                    <h3>Skills</h3>
-                    <p>Technical and communication skills</p>
-                </div>
-                <div class="nav-card" onclick="showSection('training')">
-                    <div class="nav-icon">📚</div>
-                    <h3>Training</h3>
-                    <p>Courses and certifications completed</p>
-                </div>
-                <div class="nav-card" onclick="showSection('contact')">
-                    <div class="nav-icon">📧</div>
-                    <h3>Contact</h3>
-                    <p>Get in touch with me</p>
-                </div>
-            </div>
-
-            <div class="about-portfolio">
-                <div class="card-professional about-card">
-                    <h2 class="section-header">About This Portfolio</h2>
-                    <p class="about-text">
-                        This biodata website showcases my educational background, skills, and experiences. Navigate through the different sections to learn more about my journey in IT and my aspirations for the future. Each section provides detailed information about various aspects of my academic and personal development.
-                    </p>
-                </div>
-            </div>
+        <!-- Social Icons -->
+        <div class="hero-socials">
+          <a href="https://www.linkedin.com/in/sidharth-kp" target="_blank" rel="noopener noreferrer" class="social-btn" aria-label="LinkedIn">
+            <i class="fab fa-linkedin-in" aria-hidden="true"></i>
+          </a>
+          <a href="https://github.com/Sidhukp64" target="_blank" rel="noopener noreferrer" class="social-btn" aria-label="GitHub">
+            <i class="fab fa-github" aria-hidden="true"></i>
+          </a>
+          <a href="mailto:kpsidharth36@email.com" class="social-btn" aria-label="Email">
+            <i class="fas fa-envelope" aria-hidden="true"></i>
+          </a>
         </div>
-    </section>
 
-    <!-- Personal Information Section -->
-    <section id="personal" class="section">
-        <div class="container">
-            <div class="card-professional">
-                <h1 class="section-header">Personal Information</h1>
-                
-                <div class="personal-grid">
-                    <div class="personal-left">
-                        <div class="info-group">
-                            <h3>Basic Details</h3>
-                            <div class="info-list">
-                                <div class="info-item">
-                                    <span class="info-label">Full Name:</span>
-                                    <span class="info-value">Sidharth KP</span>
-                                </div>
-                                <div class="info-item">
-                                    <span class="info-label">Date of Birth:</span>
-                                    <span class="info-value">15th april 2005</span>
-                                </div>
-                                <div class="info-item">
-                                    <span class="info-label">Gender:</span>
-                                    <span class="info-value">Male</span>
-                                </div>
-                                <div class="info-item">
-                                    <span class="info-label">Nationality:</span>
-                                    <span class="info-value">Indian</span>
-                                </div>
-                                <div class="info-item">
-                                    <span class="info-label">Languages:</span>
-                                    <span class="info-value">English, Hindi, Malayalam</span>
-                                </div>
-                            </div>
-                        </div>
+        <!-- CTA Buttons -->
+        <div class="hero-cta">
+          <a href="#projects" class="btn btn-primary">
+            <i class="fas fa-folder-open" aria-hidden="true"></i> View Projects
+          </a>
+          <a href="mailto:kpsidharth36@email.com" class="btn btn-outline">
+            <i class="fas fa-paper-plane" aria-hidden="true"></i> Hire Me
+          </a>
+        </div>
+      </div>
 
-                        <div class="info-group">
-                            <h3>Contact Information</h3>
-                            <div class="info-list">
-                                <div class="info-item">
-                                    <span class="info-label">Email:</span>
-                                    <span class="info-value">kpsidharth36@email.com</span>
-                                </div>
-                                <div class="info-item">
-                                    <span class="info-label">Phone:</span>
-                                    <span class="info-value">+91 8281883641</span>
-                                </div>
-                                <div class="info-item">
-                                    <span class="info-label">LinkedIn:</span>
-                                    <span class="info-value">https://www.linkedin.com/in/sidharth-kp</span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+      <!-- Right: Photo + Badges -->
+      <div class="hero-photo-wrap reveal-up" style="--delay: 0.2s">
+        <!-- Floating Badges -->
+        <div class="badge badge-tl" aria-label="Full Stack badge">
+          <i class="fas fa-layer-group" aria-hidden="true"></i> Full Stack
+        </div>
+        <div class="badge badge-tr" aria-label="AI / ML badge">
+          <i class="fas fa-brain" aria-hidden="true"></i> AI / ML
+        </div>
+        <div class="badge badge-br" aria-label="Data Science badge">
+          <i class="fas fa-chart-line" aria-hidden="true"></i> Data Science
+        </div>
 
-                    <div class="personal-right">
-                        <div class="info-group">
-                            <h3>Address</h3>
-                            <div class="address-card">
-                                <p>
-                                    Puthya Veedu, Kaitheri Edam,<br>
-                                    Kannur-Kerala. pin-670701
-                                </p>
-                            </div>
-                        </div>
+        <!-- Profile Photo with Ring -->
+        <div class="photo-ring">
+          <img src="profile.jpg" alt="Sidharth KP profile photo" class="profile-img" />
+        </div>
+      </div>
+    </div>
 
-                        <div class="info-group">
-                            <h3>Family Details</h3>
-                            <div class="info-list">
-                                <div class="info-item">
-                                    <span class="info-label">Father's Name:</span>
-                                    <span class="info-value">Rajesh k</span>
-                                </div>
-                                <div class="info-item">
-                                    <span class="info-label">Mother's Name:</span>
-                                    <span class="info-value">Smitha k p</span>
-                                </div>
-                                <div class="info-item">
-                                    <span class="info-label">Siblings:</span>
-                                    <span class="info-value">Yadu krishna k p</span>
-                                </div>
-                            </div>
-                        </div>
+    <!-- Scroll Indicator -->
+    <div class="scroll-indicator" aria-label="Scroll down">
+      <span class="scroll-dot"></span>
+    </div>
+  </section>
 
-                        <div class="info-group">
-                            <h3>Interests</h3>
-                            <div class="interests-tags">
-                                <span class="interest-tag">Web Development</span>
-                                <span class="interest-tag">Artifical inteligence&nbsp;</span>
-                                <span class="interest-tag">Photography</span>
-                                <span class="interest-tag">Reading</span>
-                                <span class="interest-tag">Gaming</span>
-                            </div>
-                        </div>
-                    </div>
+  <!-- ===================== ABOUT SECTION ===================== -->
+  <section id="about" class="section">
+    <div class="container">
+      <div class="section-header-wrap reveal-up">
+        <span class="section-label">Get to Know Me</span>
+        <h2 class="section-title">About Me</h2>
+      </div>
+
+      <div class="about-grid">
+
+        <!-- Card 1: Basic Details -->
+        <div class="about-card reveal-up" style="--delay: 0.05s">
+          <div class="about-card-icon">
+            <i class="fas fa-user" aria-hidden="true"></i>
+          </div>
+          <h3>Basic Details</h3>
+          <ul class="detail-list">
+            <li><span class="detail-label">Full Name</span><span class="detail-value">Sidharth KP</span></li>
+            <li><span class="detail-label">Date of Birth</span><span class="detail-value">15 April 2005</span></li>
+            <li><span class="detail-label">Gender</span><span class="detail-value">Male</span></li>
+            <li><span class="detail-label">Nationality</span><span class="detail-value">Indian</span></li>
+            <li><span class="detail-label">Location</span><span class="detail-value">Kannur, Kerala, India</span></li>
+          </ul>
+        </div>
+
+        <!-- Card 2: Languages & Contact -->
+        <div class="about-card reveal-up" style="--delay: 0.1s">
+          <div class="about-card-icon">
+            <i class="fas fa-address-card" aria-hidden="true"></i>
+          </div>
+          <h3>Languages &amp; Contact</h3>
+          <ul class="detail-list">
+            <li><span class="detail-label">Languages</span><span class="detail-value">English, Hindi, Malayalam</span></li>
+            <li>
+              <span class="detail-label">Email</span>
+              <a href="mailto:kpsidharth36@email.com" class="detail-link">kpsidharth36@email.com</a>
+            </li>
+            <li>
+              <span class="detail-label">Phone</span>
+              <a href="tel:+918281883641" class="detail-link">+91 8281883641</a>
+            </li>
+            <li>
+              <span class="detail-label">LinkedIn</span>
+              <a href="https://www.linkedin.com/in/sidharth-kp" target="_blank" rel="noopener noreferrer" class="detail-link">sidharth-kp</a>
+            </li>
+            <li>
+              <span class="detail-label">GitHub</span>
+              <a href="https://github.com/Sidhukp64" target="_blank" rel="noopener noreferrer" class="detail-link">Sidhukp64</a>
+            </li>
+          </ul>
+        </div>
+
+        <!-- Card 3: Interests -->
+        <div class="about-card reveal-up" style="--delay: 0.15s">
+          <div class="about-card-icon">
+            <i class="fas fa-heart" aria-hidden="true"></i>
+          </div>
+          <h3>Interests</h3>
+          <div class="tag-cloud">
+            <span class="tag">Web Development</span>
+            <span class="tag">Artificial Intelligence</span>
+            <span class="tag">Data Science</span>
+            <span class="tag">Photography</span>
+            <span class="tag">Reading</span>
+            <span class="tag">Gaming</span>
+            <span class="tag">Open Source</span>
+            <span class="tag">Problem Solving</span>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== SKILLS SECTION ===================== -->
+  <section id="skills" class="section">
+    <div class="container">
+      <div class="section-header-wrap reveal-up">
+        <span class="section-label">What I Know</span>
+        <h2 class="section-title">Skills &amp; Expertise</h2>
+      </div>
+
+      <div class="skills-layout">
+
+        <!-- Programming Languages -->
+        <div class="skills-col reveal-up" style="--delay: 0.05s">
+          <h3 class="skills-cat-title"><i class="fas fa-code" aria-hidden="true"></i> Programming Languages</h3>
+          <div class="skill-bars">
+            <div class="skill-item">
+              <div class="skill-info"><span>Python</span><span>65%</span></div>
+              <div class="skill-bar"><div class="skill-fill" data-width="65"></div></div>
+            </div>
+            <div class="skill-item">
+              <div class="skill-info"><span>JavaScript</span><span>50%</span></div>
+              <div class="skill-bar"><div class="skill-fill" data-width="50"></div></div>
+            </div>
+            <div class="skill-item">
+              <div class="skill-info"><span>SQL</span><span>45%</span></div>
+              <div class="skill-bar"><div class="skill-fill" data-width="45"></div></div>
+            </div>
+            <div class="skill-item">
+              <div class="skill-info"><span>R</span><span>40%</span></div>
+              <div class="skill-bar"><div class="skill-fill" data-width="40"></div></div>
+            </div>
+            <div class="skill-item">
+              <div class="skill-info"><span>Java</span><span>35%</span></div>
+              <div class="skill-bar"><div class="skill-fill" data-width="35"></div></div>
+            </div>
+            <div class="skill-item">
+              <div class="skill-info"><span>C</span><span>35%</span></div>
+              <div class="skill-bar"><div class="skill-fill" data-width="35"></div></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Tools & Frameworks -->
+        <div class="skills-col reveal-up" style="--delay: 0.1s">
+          <h3 class="skills-cat-title"><i class="fas fa-tools" aria-hidden="true"></i> Tools &amp; Frameworks</h3>
+          <div class="skill-bars">
+            <div class="skill-item">
+              <div class="skill-info"><span>Git</span><span>60%</span></div>
+              <div class="skill-bar"><div class="skill-fill" data-width="60"></div></div>
+            </div>
+            <div class="skill-item">
+              <div class="skill-info"><span>FastAPI</span><span>55%</span></div>
+              <div class="skill-bar"><div class="skill-fill" data-width="55"></div></div>
+            </div>
+            <div class="skill-item">
+              <div class="skill-info"><span>React</span><span>50%</span></div>
+              <div class="skill-bar"><div class="skill-fill" data-width="50"></div></div>
+            </div>
+            <div class="skill-item">
+              <div class="skill-info"><span>Power BI</span><span>50%</span></div>
+              <div class="skill-bar"><div class="skill-fill" data-width="50"></div></div>
+            </div>
+            <div class="skill-item">
+              <div class="skill-info"><span>PostgreSQL</span><span>45%</span></div>
+              <div class="skill-bar"><div class="skill-fill" data-width="45"></div></div>
+            </div>
+            <div class="skill-item">
+              <div class="skill-info"><span>Docker</span><span>35%</span></div>
+              <div class="skill-bar"><div class="skill-fill" data-width="35"></div></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Soft Skills -->
+        <div class="skills-col skills-col-soft reveal-up" style="--delay: 0.15s">
+          <h3 class="skills-cat-title"><i class="fas fa-users" aria-hidden="true"></i> Soft Skills</h3>
+          <div class="soft-skills-grid">
+            <div class="soft-skill-card">
+              <i class="fas fa-handshake" aria-hidden="true"></i>
+              <span>Teamwork</span>
+            </div>
+            <div class="soft-skill-card">
+              <i class="fas fa-lightbulb" aria-hidden="true"></i>
+              <span>Problem Solving</span>
+            </div>
+            <div class="soft-skill-card">
+              <i class="fas fa-comments" aria-hidden="true"></i>
+              <span>Communication</span>
+            </div>
+            <div class="soft-skill-card">
+              <i class="fas fa-refresh" aria-hidden="true"></i>
+              <span>Adaptability</span>
+            </div>
+            <div class="soft-skill-card">
+              <i class="fas fa-clock" aria-hidden="true"></i>
+              <span>Time Management</span>
+            </div>
+            <div class="soft-skill-card">
+              <i class="fas fa-rocket" aria-hidden="true"></i>
+              <span>Quick Learner</span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== EDUCATION SECTION ===================== -->
+  <section id="education" class="section">
+    <div class="container">
+      <div class="section-header-wrap reveal-up">
+        <span class="section-label">My Academic Journey</span>
+        <h2 class="section-title">Education</h2>
+      </div>
+
+      <!-- Timeline -->
+      <div class="timeline">
+
+        <!-- Entry 1: B.Tech -->
+        <div class="timeline-item reveal-up" style="--delay: 0.05s">
+          <div class="timeline-dot"></div>
+          <div class="timeline-card">
+            <div class="timeline-card-header">
+              <div>
+                <h3 class="timeline-degree">B.Tech Information Technology</h3>
+                <p class="timeline-institution">Kerala Technical University</p>
+              </div>
+              <span class="timeline-badge ongoing">CGPA Ongoing</span>
+            </div>
+            <p class="timeline-period"><i class="fas fa-calendar-alt" aria-hidden="true"></i> 2023 – 2027 (Expected)</p>
+            <div class="timeline-tags">
+              <span class="ttag">Computer Networks</span>
+              <span class="ttag">Data Structures</span>
+              <span class="ttag">Web Technologies</span>
+              <span class="ttag">AI &amp; ML</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Entry 2: +2 -->
+        <div class="timeline-item reveal-up" style="--delay: 0.1s">
+          <div class="timeline-dot"></div>
+          <div class="timeline-card">
+            <div class="timeline-card-header">
+              <div>
+                <h3 class="timeline-degree">Higher Secondary (+2)</h3>
+                <p class="timeline-institution">Kerala State Board</p>
+              </div>
+              <span class="timeline-badge score">89%</span>
+            </div>
+            <p class="timeline-period"><i class="fas fa-calendar-alt" aria-hidden="true"></i> 2021 – 2023</p>
+          </div>
+        </div>
+
+        <!-- Entry 3: SSLC -->
+        <div class="timeline-item reveal-up" style="--delay: 0.15s">
+          <div class="timeline-dot"></div>
+          <div class="timeline-card">
+            <div class="timeline-card-header">
+              <div>
+                <h3 class="timeline-degree">Secondary School (SSLC)</h3>
+                <p class="timeline-institution">Kerala State Board</p>
+              </div>
+              <span class="timeline-badge score gold">100%</span>
+            </div>
+            <p class="timeline-period"><i class="fas fa-calendar-alt" aria-hidden="true"></i> 2021</p>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Achievements Grid -->
+      <div class="section-header-wrap reveal-up" style="margin-top: 4rem;">
+        <h3 class="section-subtitle">Academic Achievements</h3>
+      </div>
+      <div class="achievements-grid">
+        <div class="achievement-card reveal-up" style="--delay: 0.05s">
+          <i class="fas fa-trophy" aria-hidden="true"></i>
+          <p>Sub-District Participation — Throw Ball, Baseball, Cricket, Soft Ball, Kho Kho (2022–2023)</p>
+        </div>
+        <div class="achievement-card reveal-up" style="--delay: 0.1s">
+          <i class="fas fa-medal" aria-hidden="true"></i>
+          <p>A Grade in PCM Scholarship Examination — School Level (2012–2013)</p>
+        </div>
+        <div class="achievement-card reveal-up" style="--delay: 0.15s">
+          <i class="fas fa-star" aria-hidden="true"></i>
+          <p>20th Rank — Talent Search Examination, National Level (2009–2010)</p>
+        </div>
+        <div class="achievement-card reveal-up" style="--delay: 0.2s">
+          <i class="fas fa-award" aria-hidden="true"></i>
+          <p>Selected for Talent Search Examination — District Level (12th)</p>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ===================== PROJECTS SECTION ===================== -->
+  <section id="projects" class="section">
+    <div class="container">
+      <div class="section-header-wrap reveal-up">
+        <span class="section-label">What I've Built</span>
+        <h2 class="section-title">Projects</h2>
+      </div>
+
+      <div class="projects-grid">
+
+        <!-- Project 1: SathyaScan -->
+        <div class="project-card reveal-up" style="--delay: 0.05s" data-tilt>
+          <div class="project-card-inner">
+            <div class="project-icon-bg teal">
+              <i class="fas fa-file-medical" aria-hidden="true"></i>
+            </div>
+            <div class="project-meta">
+              <span class="project-status production">Production Ready</span>
+              <h3 class="project-title">SathyaScan</h3>
+              <p class="project-desc">An intelligent healthcare document scanner with multilingual OCR (English &amp; Malayalam), WhatsApp integration for report delivery, and a FastAPI backend with PostgreSQL. Features automated PDF report generation.</p>
+              <div class="project-stack">
+                <span class="stack-tag">Python</span>
+                <span class="stack-tag">FastAPI</span>
+                <span class="stack-tag">PostgreSQL</span>
+                <span class="stack-tag">OCR</span>
+                <span class="stack-tag">WhatsApp API</span>
+                <span class="stack-tag">Docker</span>
+              </div>
+            </div>
+            <div class="project-footer">
+              <a href="https://github.com/Sidhukp64" target="_blank" rel="noopener noreferrer" class="btn btn-ghost btn-sm">
+                <i class="fab fa-github" aria-hidden="true"></i> View on GitHub
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Project 2: India Job Market Analytics -->
+        <div class="project-card reveal-up" style="--delay: 0.1s" data-tilt>
+          <div class="project-card-inner">
+            <div class="project-icon-bg purple">
+              <i class="fas fa-chart-bar" aria-hidden="true"></i>
+            </div>
+            <div class="project-meta">
+              <span class="project-status completed">Completed</span>
+              <h3 class="project-title">India Job Market Analytics</h3>
+              <p class="project-desc">A comprehensive data analytics project exploring trends in India's job market. Includes interactive Power BI visualizations, statistical analysis with R, and an HTML-based interactive dashboard.</p>
+              <div class="project-stack">
+                <span class="stack-tag">R</span>
+                <span class="stack-tag">Power BI</span>
+                <span class="stack-tag">Data Analysis</span>
+                <span class="stack-tag">HTML/CSS</span>
+              </div>
+            </div>
+            <div class="project-footer">
+              <a href="https://github.com/Sidhukp64" target="_blank" rel="noopener noreferrer" class="btn btn-ghost btn-sm">
+                <i class="fab fa-github" aria-hidden="true"></i> View on GitHub
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Project 3: Smart Code Navigator -->
+        <div class="project-card reveal-up" style="--delay: 0.15s" data-tilt>
+          <div class="project-card-inner">
+            <div class="project-icon-bg green">
+              <i class="fas fa-sitemap" aria-hidden="true"></i>
+            </div>
+            <div class="project-meta">
+              <span class="project-status completed">Completed</span>
+              <h3 class="project-title">Smart Code Navigator</h3>
+              <p class="project-desc">A full-stack web application for intelligent code navigation and structure visualization, built with a modern React/TypeScript frontend and a FastAPI Python backend.</p>
+              <div class="project-stack">
+                <span class="stack-tag">React</span>
+                <span class="stack-tag">TypeScript</span>
+                <span class="stack-tag">Tailwind CSS</span>
+                <span class="stack-tag">FastAPI</span>
+              </div>
+            </div>
+            <div class="project-footer">
+              <a href="https://github.com/Sidhukp64" target="_blank" rel="noopener noreferrer" class="btn btn-ghost btn-sm">
+                <i class="fab fa-github" aria-hidden="true"></i> View on GitHub
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Project 4: AI Migration Assistant -->
+        <div class="project-card reveal-up" style="--delay: 0.2s" data-tilt>
+          <div class="project-card-inner">
+            <div class="project-icon-bg gold">
+              <i class="fas fa-robot" aria-hidden="true"></i>
+            </div>
+            <div class="project-meta">
+              <span class="project-status completed">Completed</span>
+              <h3 class="project-title">AI Migration Assistant</h3>
+              <p class="project-desc">An AI-powered tool that assists with code and project migrations using Claude. Features a React + Vite frontend with a Python FastAPI backend for managing migration tasks and tracking progress.</p>
+              <div class="project-stack">
+                <span class="stack-tag">React</span>
+                <span class="stack-tag">Vite</span>
+                <span class="stack-tag">FastAPI</span>
+                <span class="stack-tag">Python</span>
+                <span class="stack-tag">Claude AI</span>
+              </div>
+            </div>
+            <div class="project-footer">
+              <a href="https://github.com/Sidhukp64" target="_blank" rel="noopener noreferrer" class="btn btn-ghost btn-sm">
+                <i class="fab fa-github" aria-hidden="true"></i> View on GitHub
+              </a>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== CERTIFICATIONS SECTION ===================== -->
+  <section id="certifications" class="section">
+    <div class="container">
+      <div class="section-header-wrap reveal-up">
+        <span class="section-label">What I've Earned</span>
+        <h2 class="section-title">Certifications</h2>
+      </div>
+
+      <div class="certs-grid">
+
+        <!-- 1 -->
+        <div class="cert-card reveal-up" style="--delay: 0.04s">
+          <div class="cert-icon"><i class="fab fa-python" aria-hidden="true"></i></div>
+          <div class="cert-info">
+            <h4>Python and AI 7-day Bootcamp</h4>
+            <p>Developer Student Club (DDSSC KIIT Chapter)</p>
+            <span class="cert-year">2023</span>
+          </div>
+          <span class="cert-badge certified">Certified</span>
+        </div>
+
+        <!-- 2 -->
+        <div class="cert-card reveal-up" style="--delay: 0.08s">
+          <div class="cert-icon"><i class="fas fa-microchip" aria-hidden="true"></i></div>
+          <div class="cert-info">
+            <h4>Arduino Workshop</h4>
+            <p>IEEE SB COET</p>
+            <span class="cert-year">2024</span>
+          </div>
+          <span class="cert-badge completed">Completed</span>
+        </div>
+
+        <!-- 3 -->
+        <div class="cert-card reveal-up" style="--delay: 0.12s">
+          <div class="cert-icon"><i class="fas fa-cogs" aria-hidden="true"></i></div>
+          <div class="cert-info">
+            <h4>Intro to Robotics using Tinkercad</h4>
+            <p>Eightplanes Solutions</p>
+            <span class="cert-year">2024</span>
+          </div>
+          <span class="cert-badge completed">Completed</span>
+        </div>
+
+        <!-- 4 -->
+        <div class="cert-card reveal-up" style="--delay: 0.16s">
+          <div class="cert-icon"><i class="fas fa-rocket" aria-hidden="true"></i></div>
+          <div class="cert-info">
+            <h4>NASA Space Apps Challenge</h4>
+            <p>NASA</p>
+            <span class="cert-year">2024</span>
+          </div>
+          <span class="cert-badge completed">Completed</span>
+        </div>
+
+        <!-- 5 -->
+        <div class="cert-card reveal-up" style="--delay: 0.20s">
+          <div class="cert-icon"><i class="fas fa-brain" aria-hidden="true"></i></div>
+          <div class="cert-info">
+            <h4>AI Workshop</h4>
+            <p>NxtWave</p>
+            <span class="cert-year">2025</span>
+          </div>
+          <span class="cert-badge completed">Completed</span>
+        </div>
+
+        <!-- 6 -->
+        <div class="cert-card reveal-up" style="--delay: 0.24s">
+          <div class="cert-icon"><i class="fab fa-linkedin" aria-hidden="true"></i></div>
+          <div class="cert-info">
+            <h4>Data Visualization for Data Analysts</h4>
+            <p>LinkedIn Learning</p>
+            <span class="cert-year">2026</span>
+          </div>
+          <span class="cert-badge certified">Certified</span>
+        </div>
+
+        <!-- 7 -->
+        <div class="cert-card reveal-up" style="--delay: 0.28s">
+          <div class="cert-icon"><i class="fab fa-google" aria-hidden="true"></i></div>
+          <div class="cert-info">
+            <h4>Foundations: Data, Data, Everywhere</h4>
+            <p>Google</p>
+            <span class="cert-year">2026</span>
+          </div>
+          <span class="cert-badge certified">Certified</span>
+        </div>
+
+        <!-- 8 -->
+        <div class="cert-card reveal-up" style="--delay: 0.32s">
+          <div class="cert-icon"><i class="fas fa-globe" aria-hidden="true"></i></div>
+          <div class="cert-info">
+            <h4>1 Million Prompters</h4>
+            <p>Dubai Future Foundation</p>
+            <span class="cert-year">2026</span>
+          </div>
+          <span class="cert-badge completed">Completed</span>
+        </div>
+
+        <!-- 9 -->
+        <div class="cert-card reveal-up" style="--delay: 0.36s">
+          <div class="cert-icon"><i class="fas fa-database" aria-hidden="true"></i></div>
+          <div class="cert-info">
+            <h4>Python for Data Science, AI &amp; Development</h4>
+            <p>IBM</p>
+            <span class="cert-year">2026</span>
+          </div>
+          <span class="cert-badge certified">Certified</span>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== CONTACT SECTION ===================== -->
+  <section id="contact" class="section">
+    <div class="container">
+      <div class="section-header-wrap reveal-up">
+        <span class="section-label">Let's Talk</span>
+        <h2 class="section-title">Get In Touch</h2>
+      </div>
+
+      <div class="contact-layout">
+
+        <!-- Left: Contact Info -->
+        <div class="contact-info reveal-up" style="--delay: 0.05s">
+          <h3>Contact Information</h3>
+          <p class="contact-subtext">Feel free to reach out for collaboration, opportunities, or just a chat!</p>
+
+          <ul class="contact-list">
+            <li>
+              <span class="contact-icon"><i class="fas fa-envelope" aria-hidden="true"></i></span>
+              <div>
+                <span class="contact-item-label">Email</span>
+                <a href="mailto:kpsidharth36@email.com" class="contact-item-value">kpsidharth36@email.com</a>
+              </div>
+            </li>
+            <li>
+              <span class="contact-icon"><i class="fas fa-phone" aria-hidden="true"></i></span>
+              <div>
+                <span class="contact-item-label">Phone</span>
+                <a href="tel:+918281883641" class="contact-item-value">+91 8281883641</a>
+              </div>
+            </li>
+            <li>
+              <span class="contact-icon"><i class="fab fa-linkedin" aria-hidden="true"></i></span>
+              <div>
+                <span class="contact-item-label">LinkedIn</span>
+                <a href="https://www.linkedin.com/in/sidharth-kp" target="_blank" rel="noopener noreferrer" class="contact-item-value">linkedin.com/in/sidharth-kp</a>
+              </div>
+            </li>
+            <li>
+              <span class="contact-icon"><i class="fab fa-github" aria-hidden="true"></i></span>
+              <div>
+                <span class="contact-item-label">GitHub</span>
+                <a href="https://github.com/Sidhukp64" target="_blank" rel="noopener noreferrer" class="contact-item-value">github.com/Sidhukp64</a>
+              </div>
+            </li>
+            <li>
+              <span class="contact-icon"><i class="fas fa-map-marker-alt" aria-hidden="true"></i></span>
+              <div>
+                <span class="contact-item-label">Location</span>
+                <span class="contact-item-value">Kannur, Kerala, India</span>
+              </div>
+            </li>
+          </ul>
+        </div>
+
+        <!-- Right: Contact Form -->
+        <div class="contact-form-wrap reveal-up" style="--delay: 0.1s">
+          <div class="glass-card">
+            <h3>Send a Message</h3>
+            <form id="contact-form" novalidate>
+              <!-- Honeypot hidden field -->
+              <input type="hidden" name="access_key" value="7a7b37ce-b998-43d7-819c-dfc9e0b2ac70" />
+              <input type="hidden" name="subject" id="form-subject-hidden" value="New message from portfolio" />
+
+              <div class="form-row">
+                <div class="form-group">
+                  <label for="form-name">Full Name <span aria-hidden="true">*</span></label>
+                  <input type="text" id="form-name" name="name" placeholder="John Doe" required autocomplete="name" />
                 </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Education Section -->
-    <section id="education" class="section">
-        <div class="container">
-            <div class="card-professional">
-                <h1 class="section-header">Educational Qualifications</h1>
-                
-                <table class="table-professional">
-                    <thead>
-                        <tr>
-                            <th>Course/Examination</th>
-                            <th>Institution/Board</th>
-                            <th>Year of Passing</th>
-                            <th>Percentage/CGPA</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td>B.Tech Information technology</td>
-                            <td>Kerala Technical University</td>
-                            <td>2027 (Expected)</td>
-                            <td>
-</td>
-                        </tr>
-                        <tr>
-                            <td>Higher Secondary (+2)</td>
-                            <td>Kerala State Board</td>
-                            <td>2023</td>
-                            <td>89</td>
-                        </tr>
-                        <tr>
-                            <td>Secondary School (SSLC)</td>
-                            <td>Kerala State Board</td>
-                            <td>2021</td>
-                            <td>100</td>
-                        </tr>
-                    </tbody>
-                </table>
-
-                <div class="achievements-section">
-                    <h2 class="subsection-header">Academic Achievements</h2>
-                    <ul class="list-professional">
-                        <li>Sub District participation certificate - Throw Ball , Base Ball , Cricket , Soft Ball , Kho Kho&nbsp; ( 2022-2023 )</li>
-                        <li>A grade in PCM scholarship examination - school level (2012-2013)</li>
-                        <li>20th rank TALENT SEARCH EXAMINATION - National level (2009 - 2010)</li>
-                        <li>selected for Talent Search Examination&nbsp; - District Level (12th)</li>
-                    </ul>
+                <div class="form-group">
+                  <label for="form-email">Email Address <span aria-hidden="true">*</span></label>
+                  <input type="email" id="form-email" name="email" placeholder="john@example.com" required autocomplete="email" />
                 </div>
-            </div>
+              </div>
+
+              <div class="form-group">
+                <label for="form-subject">Subject <span aria-hidden="true">*</span></label>
+                <input type="text" id="form-subject" name="subject" placeholder="Let's collaborate!" required />
+              </div>
+
+              <div class="form-group">
+                <label for="form-message">Message <span aria-hidden="true">*</span></label>
+                <textarea id="form-message" name="message" rows="5" placeholder="Write your message here…" required></textarea>
+              </div>
+
+              <button type="submit" id="submit-btn" class="btn btn-primary btn-full">
+                <span id="btn-text"><i class="fas fa-paper-plane" aria-hidden="true"></i> Send Message</span>
+                <span id="btn-spinner" class="spinner" aria-hidden="true" style="display:none"></span>
+              </button>
+            </form>
+          </div>
         </div>
-    </section>
 
-    <!-- Skills Section -->
-    <section id="skills" class="section">
-        <div class="container">
-            <div class="card-professional">
-                <h1 class="section-header">Technical & Soft Skills</h1>
-                
-                <div class="skills-grid">
-                    <div class="skill-category">
-                        <h3>Programming Languages</h3>
-                        <ul class="list-professional">
-                            <li>Python - intermediate</li>
-                            <li>Java - basic</li>
-                            <li>C - basic</li>
-                            <li>JavaScript - basic</li>
-                            <li>SQL - basic</li>
-                        </ul>
-                    </div>
+      </div>
+    </div>
+  </section>
 
-                    <div class="skill-category">
-                        <h3>Tools & Frameworks</h3>
-                        <ul class="list-professional">
-                            <li>Git & GitHub</li>
-                            <li>VS Code</li>
-                            <li>Antigravity</li>
-                            <li>Claude</li>
-                        </ul>
-                    </div>
-
-                </div>
-            </div>
+  <!-- ===================== FOOTER ===================== -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-inner">
+        <p class="footer-copy">Designed &amp; Built by <span class="footer-name">Sidharth KP</span> &middot; 2026</p>
+        <div class="footer-socials">
+          <a href="https://www.linkedin.com/in/sidharth-kp" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
+            <i class="fab fa-linkedin-in" aria-hidden="true"></i>
+          </a>
+          <a href="https://github.com/Sidhukp64" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
+            <i class="fab fa-github" aria-hidden="true"></i>
+          </a>
+          <a href="mailto:kpsidharth36@email.com" aria-label="Email">
+            <i class="fas fa-envelope" aria-hidden="true"></i>
+          </a>
         </div>
-    </section>
+      </div>
+    </div>
+  </footer>
 
-    <!-- Training Section -->
-    <section id="training" class="section">
-        <div class="container">
-            <div class="card-professional">
-                <h1 class="section-header">Training & Certifications</h1>
-                
-                <table class="table-professional">
-                    <thead>
-                        <tr>
-                            <th>Course Name</th>
-                            <th>Institution/Platform</th>
-                            <th>Year</th>
-                            <th>Certificate</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td>Python and AI&nbsp; (7 day boot camb)</td>
-                            <td>developer student club (DDSSC KIIT Chapter)</td>
-                            <td>2023</td>
-                            <td>certified</td>
-                        </tr>
-                        <tr><td>Arduino workshop</td><td>IEEE SB COET</td><td>2024</td><td>completed</td></tr>
-                        <tr><td>Intro to Robotics using Tinker Card</td><td>Eightplanes Solutions</td><td>2024</td><td>completed</td></tr>
-                        <tr><td>Nasa Space App Challenge</td><td>NASA</td><td>2024</td><td>completed</td></tr>
-                        <tr><td>AI workshop</td><td>NxtWave</td><td>2025</td><td>completed</td></tr>
-                        <tr><td>Data Visualization for Data Analysts and analytics</td><td>linked in</td><td>2026</td><td>certified</td></tr>
-                        <tr><td>Foundations:Data,Data,Everywhere</td><td>google</td><td>2026</td><td>certified</td></tr>
-                        <tr><td>1 Million Prompters</td><td>Dubai Future Fountation</td><td>2026</td><td>completed</td></tr>
-                        <tr><td>Python For Data Science,AI & Development</td><td>IBM</td><td>2026</td><td>certified</td></tr>
-                    </tbody>
-                </table>
+  <!-- ===================== BACK TO TOP ===================== -->
+  <button id="back-to-top" class="back-to-top" aria-label="Back to top" title="Back to top">
+    <i class="fas fa-chevron-up" aria-hidden="true"></i>
+  </button>
 
-            </div>
-        </div>
-    </section>
-
-
-
-
-    <!-- Contact Section -->
-    <section id="contact" class="section">
-        <div class="container">
-            <div class="card-professional">
-                <h1 class="section-header">Contact Information</h1>
-                
-                <div class="contact-grid">
-                    <div class="contact-info">
-                        <h3>Get in Touch</h3>
-                        <div class="contact-details">
-                            <div class="contact-item">
-                                <strong>📧 Email:</strong>
-                                <span>kpsidharth36@email.com</span>
-                            </div>
-                            <div class="contact-item">
-                                <strong>📱 Phone:</strong>
-                                <span>+91 8281883641</span>
-                            </div>
-                            <div class="contact-item">
-                                <strong>💼 LinkedIn:</strong>
-                                <span>https://www.linkedin.com/in/sidharth-kp</span>
-                            </div>
-                            <div class="contact-item">
-                                <strong>🐙 GitHub:</strong>
-                                <span>github.com/Sidhukp64</span>
-                            </div>
-                            <div class="contact-item">
-                                <strong>📍 Location:</strong>
-                                <span>Kannur, Kerala, India</span>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="contact-form">
-                        <h3>Send a Message</h3>
-                        <form class="form-professional" action="https://api.web3forms.com/submit" method="POST" id="contact-form">
-                            <input type="hidden" name="access_key" value="7a7b37ce-b998-43d7-819c-dfc9e0b2ac70">
-                            <div class="form-group">
-                                <label for="name">Full Name</label>
-                                <input type="text" id="name" name="name" required>
-                            </div>
-                            <div class="form-group">
-                                <label for="email">Email Address</label>
-                                <input type="email" id="email" name="email" required>
-                            </div>
-                            <div class="form-group">
-                                <label for="subject">Subject</label>
-                                <input type="text" id="subject" name="subject" required>
-                            </div>
-                            <div class="form-group">
-                                <label for="message">Message</label>
-                                <textarea id="message" name="message" rows="5" required></textarea>
-                            </div>
-                            <button type="submit" class="submit-btn">Send Message</button>
-                        </form>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <script src="script.js"></script>
-
-
+  <!-- Main Script -->
+  <script src="script.js"></script>
 </body>
 </html>

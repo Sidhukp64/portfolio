@@ -132,13 +132,12 @@ document.addEventListener('DOMContentLoaded', () => {
      ============================================================ */
   const roles = [
     'Information Technology Student',
-    'Full Stack Developer',
-    'AI Enthusiast',
-    'Python Developer',
-    'Data Science Explorer',
+    'AI Full Stack Developer',
+    'Aspiring Data Analyst',
   ];
 
-  const typewriterEl = document.getElementById('typewriter');
+  const typewriterEl     = document.getElementById('typewriter');
+  const typewriterPrefix = document.querySelector('.typewriter-prefix');
   let roleIndex   = 0;
   let charIndex   = 0;
   let isDeleting  = false;
@@ -146,6 +145,13 @@ document.addEventListener('DOMContentLoaded', () => {
 
   function typeWriter() {
     const currentRole = roles[roleIndex];
+
+    // Dynamically use 'I am an' for vowels, 'I am a' for consonants
+    if (typewriterPrefix && charIndex === 0) {
+      const firstLetter = currentRole.trim().charAt(0).toUpperCase();
+      const isVowel = ['A', 'E', 'I', 'O', 'U'].includes(firstLetter);
+      typewriterPrefix.textContent = isVowel ? 'I am an ' : 'I am a ';
+    }
 
     if (isDeleting) {
       // Remove one character
@@ -157,7 +163,7 @@ document.addEventListener('DOMContentLoaded', () => {
       typewriterEl.textContent = currentRole.slice(0, charIndex);
     }
 
-    let delay = isDeleting ? 60 : 100;
+    let delay = isDeleting ? 50 : 90;
 
     if (!isDeleting && charIndex === currentRole.length) {
       // Pause at end

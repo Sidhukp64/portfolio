@@ -202,28 +202,17 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
   /* ============================================================
-     7. SKILL BAR ANIMATIONS — animate to target width on scroll-in
+     7. SKILL CHIPS HOVER TILT / ENTRANCE
      ============================================================ */
-  const skillFills = document.querySelectorAll('.skill-fill');
-
-  const skillObserver = new IntersectionObserver(
-    (entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          const fill    = entry.target;
-          const targetW = fill.dataset.width || '0';
-          // Tiny delay so the CSS transition actually plays
-          setTimeout(() => {
-            fill.style.width = targetW + '%';
-          }, 120);
-          skillObserver.unobserve(fill);
-        }
-      });
-    },
-    { threshold: 0.3 }
-  );
-
-  skillFills.forEach(fill => skillObserver.observe(fill));
+  const skillChips = document.querySelectorAll('.skill-chip, .soft-skill-card');
+  skillChips.forEach(chip => {
+    chip.addEventListener('mouseenter', () => {
+      chip.style.transform = 'translateY(-2px)';
+    });
+    chip.addEventListener('mouseleave', () => {
+      chip.style.transform = '';
+    });
+  });
 
 
   /* ============================================================

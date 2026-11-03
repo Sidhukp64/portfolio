@@ -30,9 +30,8 @@
     '.info-value',
     '.interest-tag',
     '.skill-name',
-    '.skill-pct',
-    '.soft-skill-card h4',
-    '.soft-skill-card p',
+    '.skills-cat-title',
+    '.soft-skill-card span',
     '.timeline-title',
     '.timeline-place',
     '.timeline-time',
@@ -338,6 +337,8 @@
 
     // Add delete buttons on project cards
     attachCardDeleteButtons();
+    // Add skill controls
+    attachSkillControls();
   }
 
   function exitEditMode() {
@@ -355,6 +356,9 @@
         }
       });
     });
+
+    // Remove skill admin controls
+    document.querySelectorAll('.admin-skill-delete-btn, .admin-add-skill-btn').forEach(el => el.remove());
 
     notify('Exited edit mode.', 'success');
   }
@@ -388,6 +392,85 @@
         });
         card.style.position = 'relative';
         card.appendChild(btn);
+      }
+    });
+  }
+
+  /* ------------------------------------------------------------
+     Skill Operations
+     ------------------------------------------------------------ */
+  function attachSkillControls() {
+    // 1. Delete button on each skill chip and soft skill card
+    document.querySelectorAll('.skill-chip, .soft-skill-card').forEach(chip => {
+      if (!chip.querySelector('.admin-skill-delete-btn')) {
+        const btn = document.createElement('button');
+        btn.className = 'admin-skill-delete-btn';
+        btn.setAttribute('title', 'Delete this skill');
+        btn.innerHTML = '&times;';
+        btn.addEventListener('click', (e) => {
+          e.stopPropagation();
+          const nameEl = chip.querySelector('.skill-name') || chip.querySelector('span');
+          const skillName = nameEl ? nameEl.textContent.trim() : 'this skill';
+          if (confirm(`Delete skill "${skillName}"?`)) {
+            chip.style.transition = 'all 0.2s ease';
+            chip.style.transform = 'scale(0.8)';
+            chip.style.opacity = '0';
+            setTimeout(() => chip.remove(), 200);
+            notify(`Skill "${skillName}" removed.`, 'success');
+          }
+        });
+        chip.appendChild(btn);
+      }
+    });
+
+    // 2. Add Skill button on each skills column
+    document.querySelectorAll('.skills-col').forEach(col => {
+      if (!col.querySelector('.admin-add-skill-btn')) {
+        const addBtn = document.createElement('button');
+        addBtn.className = 'admin-add-skill-btn';
+        addBtn.innerHTML = '<i class="fas fa-plus"></i> Add Skill';
+        addBtn.addEventListener('click', (e) => {
+          e.preventDefault();
+          const skillName = prompt('Enter skill name (e.g. TypeScript, AWS, Next.js, Redux):');
+          if (!skillName || !skillName.trim()) return;
+
+          const trimmed = skillName.trim();
+          const grid = col.querySelector('.skills-chips-grid') || col.querySelector('.soft-skills-grid');
+          if (!grid) return;
+
+          // Smart icon detection
+          let iconClass = 'fas fa-check-circle';
+          const lower = trimmed.toLowerCase();
+          if (lower.includes('python')) iconClass = 'fab fa-python';
+          else if (lower.includes('js') || lower.includes('javascript') || lower.includes('typescript') || lower.includes('ts')) iconClass = 'fab fa-js';
+          else if (lower.includes('react')) iconClass = 'fab fa-react';
+          else if (lower.includes('node')) iconClass = 'fab fa-node-js';
+          else if (lower.includes('html')) iconClass = 'fab fa-html5';
+          else if (lower.includes('css') || lower.includes('tailwind')) iconClass = 'fab fa-css3-alt';
+          else if (lower.includes('git')) iconClass = 'fab fa-git-alt';
+          else if (lower.includes('docker') || lower.includes('container')) iconClass = 'fab fa-docker';
+          else if (lower.includes('aws') || lower.includes('azure') || lower.includes('gcp')) iconClass = 'fab fa-aws';
+          else if (lower.includes('java') && !lower.includes('script')) iconClass = 'fab fa-java';
+          else if (lower.includes('sql') || lower.includes('data') || lower.includes('mongo') || lower.includes('db')) iconClass = 'fas fa-database';
+          else if (lower.includes('api') || lower.includes('cloud')) iconClass = 'fas fa-cloud';
+          else if (lower.includes('fastapi') || lower.includes('express')) iconClass = 'fas fa-bolt';
+          else if (lower.includes('chart') || lower.includes('bi') || lower.includes('analytics') || lower.includes('tableau')) iconClass = 'fas fa-chart-bar';
+
+          const newChip = document.createElement('div');
+          if (grid.classList.contains('soft-skills-grid')) {
+            newChip.className = 'soft-skill-card';
+            newChip.innerHTML = `<i class="${iconClass}" aria-hidden="true"></i><span class="skill-name" contenteditable="true" spellcheck="true">${trimmed}</span>`;
+          } else {
+            newChip.className = 'skill-chip';
+            newChip.innerHTML = `<i class="${iconClass}" aria-hidden="true"></i><span class="skill-name" contenteditable="true" spellcheck="true">${trimmed}</span>`;
+          }
+
+          grid.appendChild(newChip);
+          attachSkillControls();
+          notify(`Skill "${trimmed}" added! Click "Save & Publish" when finished.`, 'success');
+        });
+
+        col.appendChild(addBtn);
       }
     });
   }
@@ -473,8 +556,8 @@
       el.removeAttribute('spellcheck');
     });
 
-    // 3. Remove admin delete buttons from cards
-    clone.querySelectorAll('.admin-card-delete-btn').forEach(el => el.remove());
+    // 3. Remove admin delete and add buttons
+    clone.querySelectorAll('.admin-card-delete-btn, .admin-skill-delete-btn, .admin-add-skill-btn').forEach(el => el.remove());
 
     // 4. Reset admin bar state in clone
     const barClone = clone.querySelector('#admin-bar');

@@ -559,14 +559,8 @@
     // 3. Remove admin delete and add buttons
     clone.querySelectorAll('.admin-card-delete-btn, .admin-skill-delete-btn, .admin-add-skill-btn').forEach(el => el.remove());
 
-    // 4. Reset admin bar state in clone
-    const barClone = clone.querySelector('#admin-bar');
-    if (barClone) {
-      barClone.classList.remove('active');
-    }
-
-    // 5. Ensure all modals in clone are closed
-    clone.querySelectorAll('.admin-modal-overlay').forEach(el => el.classList.remove('open'));
+    // 4. Remove all dynamically injected admin UI elements completely from static HTML
+    clone.querySelectorAll('#admin-bar, #admin-auth-modal, #admin-project-modal, #admin-settings-modal, #admin-trigger-btn').forEach(el => el.remove());
 
     // 6. Remove toast notifications from clone
     const toastClone = clone.querySelector('#toast-container');

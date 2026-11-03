@@ -21,7 +21,7 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 
   <!-- Main Stylesheet -->
-  <link rel="stylesheet" href="styles.css?v=20261103">
+  <link rel="stylesheet" href="styles.css?v=20261103c">
   <!-- In-Page Visual Editor Stylesheet -->
   <link rel="stylesheet" href="editor.css?v=20261103">
 </head>
@@ -143,7 +143,7 @@
 
         <!-- Profile Photo with Ring -->
         <div class="photo-ring">
-          <img src="profile.jpg?v=20261103" alt="Sidharth KP profile photo" class="profile-img" />
+          <img src="profile.jpg?v=20261103c" alt="Sidharth KP profile photo" class="profile-img" />
         </div>
       </div>
     </div>
@@ -810,144 +810,9 @@
   </button>
 
   <!-- Main Script -->
-  <script src="script.js?v=20261103"></script>
+  <script src="script.js?v=20261103c"></script>
   <!-- In-Page Visual Editor & Direct GitHub Sync -->
-  <script src="editor.js?v=20261103"></script>
+  <script src="editor.js?v=20261103c"></script>
 
-
-<div id="admin-bar" class="">
-      <span class="admin-pill-badge"><span class="admin-pulse-dot"></span> EDIT MODE</span>
-      <button id="admin-btn-add-project" class="admin-btn" title="Add a new project card">
-        <i class="fas fa-plus-circle"></i> Add Project
-      </button>
-      <button id="admin-btn-publish" class="admin-btn admin-btn-publish" title="Publish changes directly to GitHub" disabled="">
-        <i class="fas fa-cloud-upload-alt"></i> <span id="admin-publish-text"><span class="admin-spinner"></span> Publishing...</span>
-      </button>
-      <button id="admin-btn-download" class="admin-btn" title="Download clean index.html backup">
-        <i class="fas fa-download"></i> Backup
-      </button>
-      <button id="admin-btn-settings" class="admin-btn" title="Editor &amp; Token Settings">
-        <i class="fas fa-cog"></i>
-      </button>
-      <button id="admin-btn-exit" class="admin-btn admin-btn-exit" title="Exit Edit Mode">
-        <i class="fas fa-times"></i>
-      </button>
-    </div><div id="admin-auth-modal" class="admin-modal-overlay">
-      <div class="admin-modal-box">
-        <div class="admin-modal-header">
-          <h3><i class="fas fa-user-shield" style="color:var(--gold)"></i> Owner Admin Login</h3>
-          <button class="admin-modal-close" data-close="admin-auth-modal">×</button>
-        </div>
-        <div class="admin-modal-body">
-          <p>This editor allows <strong>Sidharth</strong> to edit website content directly on screen and push live updates straight to GitHub Pages.</p>
-          
-          <div id="admin-pin-group" class="admin-field-group" style="display: block;">
-            <label for="admin-input-pin">Enter Quick PIN</label>
-            <input type="password" id="admin-input-pin" placeholder="••••" maxlength="10">
-            <div class="admin-hint">Enter your preset admin PIN to unlock immediately.</div>
-          </div>
-
-          <div id="admin-token-group" class="admin-field-group" style="display: none;">
-            <label for="admin-input-token">GitHub Personal Access Token (PAT)</label>
-            <input type="password" id="admin-input-token" placeholder="ghp_xxxxxxxxxxxxxxxxxxxx" autocomplete="off">
-            <div class="admin-hint">
-              Needs <code>repo</code> (Contents: Read &amp; Write) permission for <strong>Sidhukp64/portfolio</strong>.<br>
-              <a href="https://github.com/settings/tokens/new?scopes=repo&amp;description=Portfolio+InPage+Editor" target="_blank" rel="noopener noreferrer">
-                👉 Click here to create a GitHub token
-              </a>
-            </div>
-          </div>
-
-          <div id="admin-set-pin-group" class="admin-field-group" style="display: none;">
-            <label for="admin-input-new-pin">Set a Quick PIN (Optional)</label>
-            <input type="password" id="admin-input-new-pin" placeholder="e.g. 1234 (for easy next-time access)" maxlength="10">
-            <div class="admin-hint">Allows fast unlock next time without having to paste the long token again.</div>
-          </div>
-        </div>
-        <div class="admin-modal-footer">
-          <button class="admin-btn" data-close="admin-auth-modal">Cancel</button>
-          <button id="admin-submit-auth" class="admin-btn admin-btn-publish">
-            <i class="fas fa-unlock-alt"></i> Unlock Edit Mode
-          </button>
-        </div>
-      </div>
-    </div><div id="admin-project-modal" class="admin-modal-overlay">
-      <div class="admin-modal-box">
-        <div class="admin-modal-header">
-          <h3><i class="fas fa-folder-plus" style="color:var(--gold)"></i> Add New Project</h3>
-          <button class="admin-modal-close" data-close="admin-project-modal">×</button>
-        </div>
-        <div class="admin-modal-body">
-          <div class="admin-field-group">
-            <label for="proj-name">Project Title *</label>
-            <input type="text" id="proj-name" placeholder="e.g. AI Medical Assistant" required="">
-          </div>
-          <div class="admin-field-group">
-            <label for="proj-status">Status Badge</label>
-            <select id="proj-status">
-              <option value="Production Ready" selected="">Production Ready</option>
-              <option value="Completed">Completed</option>
-              <option value="In Progress">In Progress</option>
-            </select>
-          </div>
-          <div class="admin-field-group">
-            <label for="proj-color">Color Accent</label>
-            <select id="proj-color">
-              <option value="teal" selected="">Teal (Cyan)</option>
-              <option value="purple">Purple</option>
-              <option value="green">Green</option>
-              <option value="gold">Gold</option>
-            </select>
-          </div>
-          <div class="admin-field-group">
-            <label for="proj-icon">Icon (Font Awesome Class)</label>
-            <input type="text" id="proj-icon" value="fas fa-laptop-code" placeholder="e.g. fas fa-robot">
-          </div>
-          <div class="admin-field-group">
-            <label for="proj-desc">Description *</label>
-            <textarea id="proj-desc" rows="3" placeholder="Brief summary of what it does and why it was built..." required=""></textarea>
-          </div>
-          <div class="admin-field-group">
-            <label for="proj-stack">Tech Stack (comma separated)</label>
-            <input type="text" id="proj-stack" placeholder="e.g. Python, FastAPI, React, Docker">
-          </div>
-          <div class="admin-field-group">
-            <label for="proj-link">GitHub or Live Link</label>
-            <input type="url" id="proj-link" value="https://github.com/Sidhukp64" placeholder="https://github.com/...">
-          </div>
-        </div>
-        <div class="admin-modal-footer">
-          <button class="admin-btn" data-close="admin-project-modal">Cancel</button>
-          <button id="admin-submit-project" class="admin-btn admin-btn-publish">
-            <i class="fas fa-check"></i> Add to Portfolio
-          </button>
-        </div>
-      </div>
-    </div><div id="admin-settings-modal" class="admin-modal-overlay">
-      <div class="admin-modal-box">
-        <div class="admin-modal-header">
-          <h3><i class="fas fa-cog" style="color:var(--gold)"></i> Editor Settings</h3>
-          <button class="admin-modal-close" data-close="admin-settings-modal">×</button>
-        </div>
-        <div class="admin-modal-body">
-          <div class="admin-field-group">
-            <label for="settings-token">Update GitHub Personal Access Token</label>
-            <input type="password" id="settings-token" placeholder="Paste new token to update">
-          </div>
-          <div class="admin-field-group">
-            <label for="settings-pin">Update Quick PIN</label>
-            <input type="password" id="settings-pin" placeholder="Enter new PIN" maxlength="10">
-          </div>
-          <hr style="border-color:var(--border); margin: 1.5rem 0;">
-          <button id="admin-btn-logout" class="admin-btn" style="color:#ef4444; border-color:rgba(239,68,68,0.4); width:100%; justify-content:center;">
-            <i class="fas fa-sign-out-alt"></i> Clear Saved Credentials on this Device
-          </button>
-        </div>
-        <div class="admin-modal-footer">
-          <button class="admin-btn" data-close="admin-settings-modal">Close</button>
-          <button id="admin-submit-settings" class="admin-btn admin-btn-publish">
-            Save Settings
-          </button>
-        </div>
-      </div>
-    </div></body></html>
+</body>
+</html>

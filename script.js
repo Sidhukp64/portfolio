@@ -132,7 +132,7 @@ document.addEventListener('DOMContentLoaded', () => {
      ============================================================ */
   const roles = [
     'Information Technology Student',
-    'AI Full Stack Developer',
+    'AI Assisted Full Stack Developer',
     'Aspiring Data Analyst',
   ];
 
